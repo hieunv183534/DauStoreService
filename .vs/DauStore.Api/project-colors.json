@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "69d404cf-5b73-4065-b7b9-9fb968d7b049": {
+      "ProjectGuid": "69d404cf-5b73-4065-b7b9-9fb968d7b049",
+      "DisplayName": "DauStore.Api",
+      "ColorIndex": 0
+    },
+    "5ecc0f53-f229-4881-938c-0b786e44300f": {
+      "ProjectGuid": "5ecc0f53-f229-4881-938c-0b786e44300f",
+      "DisplayName": "DauStore.Core",
+      "ColorIndex": 1
+    },
+    "633e329b-40c8-4335-a433-44aa80b3a2f0": {
+      "ProjectGuid": "633e329b-40c8-4335-a433-44aa80b3a2f0",
+      "DisplayName": "DauStore.Infrastructure",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}

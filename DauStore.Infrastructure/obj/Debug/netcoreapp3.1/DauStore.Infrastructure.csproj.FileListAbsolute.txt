@@ -1,0 +1,9 @@
+C:\Users\Hi\Desktop\DauStore.Api\DauStore.Infrastructure\bin\Debug\netcoreapp3.1\DauStore.Infrastructure.deps.json
+C:\Users\Hi\Desktop\DauStore.Api\DauStore.Infrastructure\bin\Debug\netcoreapp3.1\DauStore.Infrastructure.dll
+C:\Users\Hi\Desktop\DauStore.Api\DauStore.Infrastructure\bin\Debug\netcoreapp3.1\DauStore.Infrastructure.pdb
+C:\Users\Hi\Desktop\DauStore.Api\DauStore.Infrastructure\obj\Debug\netcoreapp3.1\DauStore.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Hi\Desktop\DauStore.Api\DauStore.Infrastructure\obj\Debug\netcoreapp3.1\DauStore.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Hi\Desktop\DauStore.Api\DauStore.Infrastructure\obj\Debug\netcoreapp3.1\DauStore.Infrastructure.AssemblyInfo.cs
+C:\Users\Hi\Desktop\DauStore.Api\DauStore.Infrastructure\obj\Debug\netcoreapp3.1\DauStore.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Hi\Desktop\DauStore.Api\DauStore.Infrastructure\obj\Debug\netcoreapp3.1\DauStore.Infrastructure.dll
+C:\Users\Hi\Desktop\DauStore.Api\DauStore.Infrastructure\obj\Debug\netcoreapp3.1\DauStore.Infrastructure.pdb

@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "vEogVzJj0/2SUJH3cm6+ks1yQ54ey9GW6Fvl3QGPF1mxCev/qauo+K4e9plqnPQy4xMW0OnVaioX9BPOdCY1Jg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Hi\\Desktop\\DauStore.Api\\DauStore.Infrastructure\\DauStore.Infrastructure.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Hi\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
+    "C:\\Users\\Hi\\.nuget\\packages\\mysqlconnector\\2.0.0\\mysqlconnector.2.0.0.nupkg.sha512",
+    "C:\\Users\\Hi\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.1\\system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512",
+    "C:\\Users\\Hi\\.nuget\\packages\\system.reflection.emit.lightweight\\4.7.0\\system.reflection.emit.lightweight.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}
