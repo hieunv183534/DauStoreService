@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "NDrs00PCXKB8M6yYecKw9QSbK8P7rE0fpEn9PshuckhZV4N6TDDuUQEeHHJvPMvNyOIyYqd1IiZdzQT7ORHmJQ==",
+  "dgSpecHash": "2AU67lhQLJeevPJ3pd/7bztQnxkVr92cBu5mxZUk1BBk3dm7ZKQcpS1F1pIKnrRKcyzSNyKgw6X7fvUW5pShzQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Hi\\Desktop\\DauStore.Api\\DauStore.Core\\DauStore.Core.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Hi\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

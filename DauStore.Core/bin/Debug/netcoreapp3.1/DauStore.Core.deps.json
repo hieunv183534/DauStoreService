@@ -8,15 +8,18 @@
     ".NETCoreApp,Version=v3.1": {
       "DauStore.Core/1.0.0": {
         "dependencies": {
-          "DauStore.Infrastructure": "1.0.0"
+          "BCrypt.Net-Next": "4.0.3"
         },
         "runtime": {
           "DauStore.Core.dll": {}
         }
       },
-      "DauStore.Infrastructure/1.0.0": {
+      "BCrypt.Net-Next/4.0.3": {
         "runtime": {
-          "DauStore.Infrastructure.dll": {}
+          "lib/netstandard2.1/BCrypt.Net-Next.dll": {
+            "assemblyVersion": "4.0.3.0",
+            "fileVersion": "4.0.3.0"
+          }
         }
       }
     }
@@ -27,10 +30,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "DauStore.Infrastructure/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
+    "BCrypt.Net-Next/4.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-W+U9WvmZQgi5cX6FS5GDtDoPzUCV4LkBLkywq/kRZhuDwcbavOzcDAr3LXJFqHUi952Yj3LEYoWW0jbEUQChsA==",
+      "path": "bcrypt.net-next/4.0.3",
+      "hashPath": "bcrypt.net-next.4.0.3.nupkg.sha512"
     }
   }
 }

@@ -67,6 +67,16 @@ namespace DauStore.Infrastructure.Repositories
             }
         }
 
+        public List<TEntity> GetAll()
+        {
+            using (var dbConnection = DatabaseConnection.DbConnection)
+            {
+                var procName = $"Proc_GetAll{_tableName}";
+                var entities = dbConnection.Query<TEntity>(procName, commandType: CommandType.StoredProcedure);
+                return (List<TEntity>)entities;
+            }
+        }
+
         public TEntity GetById(Guid entityId)
         {
             using (var dbConnection = DatabaseConnection.DbConnection)

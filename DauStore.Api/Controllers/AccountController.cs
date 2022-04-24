@@ -16,14 +16,14 @@ namespace DauStore.Api.Controllers
         #region Delare
 
         protected IBaseService<TokenAccount> _tokenAccountService;
-        protected IBaseService<User> _accountService;
+        protected IBaseService<Account> _accountService;
         private readonly IJwtAuthenticationManager _jwtAuthenticationManager;
 
         #endregion
 
         #region Consstructor
 
-        public AccountController(IBaseService<TokenAccount> tokenAccountService, IBaseService<User> accountService, IJwtAuthenticationManager jwtAuthenticationManager)
+        public AccountController(IBaseService<TokenAccount> tokenAccountService, IBaseService<Account> accountService, IJwtAuthenticationManager jwtAuthenticationManager)
         {
             _tokenAccountService = tokenAccountService;
             _accountService = accountService;
@@ -32,6 +32,8 @@ namespace DauStore.Api.Controllers
 
         #endregion
 
+       
+
         /// <summary>
         /// 
         /// </summary>
@@ -39,11 +41,9 @@ namespace DauStore.Api.Controllers
         /// <returns></returns>
         [AllowAnonymous]
         [HttpPost("signup")]
-        public IActionResult SignUp([FromBody] User user)
+        public IActionResult SignUp([FromBody] Account account)
         {
-            string passwordHash = BCrypt.Net.BCrypt.HashPassword(user.Password);
-            user.Password = passwordHash;
-            var serviceResult = _accountService.Add(user);
+            var serviceResult = _accountService.Add(account);
             return StatusCode(serviceResult.StatusCode, serviceResult.Response);
         }
 
@@ -55,14 +55,21 @@ namespace DauStore.Api.Controllers
         /// Author HieuNv
         [AllowAnonymous]
         [HttpPost("login")]
-        public IActionResult Login([FromBody] User user)
+        public IActionResult Login([FromBody] Account account)
         {
-            var token = _jwtAuthenticationManager.Authenticate(user.Phone, user.Password);
+            var token = _jwtAuthenticationManager.Authenticate(account.Phone, account.Password);
             if (token == null)
             {
                 return Unauthorized();
             }
             return Ok(new ResponseModel(1000, "OK", new { token = token }));
+        }
+
+
+        [HttpGet("test")]
+        public IActionResult Test()
+        {
+            return Ok("12345");
         }
 
 
@@ -88,11 +95,11 @@ namespace DauStore.Api.Controllers
         public IActionResult ChangePassword([FromQuery] string password, [FromQuery] string newPassword)
         {
             var phoneNumber = User.FindFirstValue(ClaimTypes.Name);
-            var acc = (User)_accountService.GetByProp("Phone", phoneNumber).Response.Data;
+            var acc = (Account)_accountService.GetByProp("Phone", phoneNumber).Response.Data;
             if (BCrypt.Net.BCrypt.Verify(password, acc.Password))
             {
-                acc.Password = BCrypt.Net.BCrypt.HashPassword(newPassword);
-                var serviceResult = _accountService.Update(acc, acc.UserId);
+                acc.Password = newPassword;
+                var serviceResult = _accountService.Update(acc, acc.AccountId);
                 return StatusCode(serviceResult.StatusCode, serviceResult.Response);
             }
             else
@@ -100,6 +107,23 @@ namespace DauStore.Api.Controllers
                 return StatusCode(400, new ResponseModel(1009, "Password incorrect!"));
             }
 
+        }
+
+        [HttpPost("updateAccount")]
+        public IActionResult UpdateAccount([FromBody] Account account)
+         {
+            var phoneNumber = User.FindFirstValue(ClaimTypes.Name);
+            var acc = (Account)_accountService.GetByProp("Phone", phoneNumber).Response.Data;
+            acc.AccountName = account.AccountName;
+            acc.Email = account.Email;
+            acc.Phone = account.Phone;
+            var serviceResult = _accountService.Update(acc,acc.AccountId);
+
+            if(phoneNumber != account.Phone)
+            {
+                var sr = _tokenAccountService.DeleteByProp("Phone", phoneNumber);
+            }
+            return StatusCode(serviceResult.StatusCode, serviceResult.Response);
         }
     }
 }

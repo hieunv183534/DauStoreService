@@ -6,6 +6,11 @@ namespace DauStore.Core.Interfaces.IRepositories
 {
     public interface IBaseRepository<TEntity>
     {
+        /// <summary>
+        /// Lấy toàn bộ bản ghi
+        /// </summary>
+        /// <returns></returns>
+        List<TEntity> GetAll();
 
         /// <summary>
         /// Lấy theo id

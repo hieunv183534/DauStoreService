@@ -11,11 +11,14 @@ namespace DauStore.Core.Entities
 
         }
 
+        [PrimaryKey]
         public Guid NotificationId { get; set; }
 
+        [Requied]
         public string Content { get; set; }
 
-        public Guid UserId { get; set; }
+        [Requied]
+        public Guid AccountId { get; set; }
 
         public bool Seen { get; set; }
     }

@@ -1,4 +1,8 @@
 using DauStore.Api.Authentication;
+using DauStore.Core.Interfaces.IRepositories;
+using DauStore.Core.Interfaces.IServices;
+using DauStore.Core.Services;
+using DauStore.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -62,6 +66,8 @@ namespace DauStore.Api
                 };
             });
 
+            services.AddScoped(typeof(IJwtAuthenticationManager), typeof(JwtAuthenticationManager));
+
             services.AddCors(options => options.AddPolicy("CorsPolicy",
                     builder =>
                     {
@@ -75,6 +81,13 @@ namespace DauStore.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "DauStore", Version = "v1" });
             });
+
+            services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+            services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
+
+            services.AddScoped(typeof(INotificationRepository), typeof(NotificationRepository));
+            services.AddScoped(typeof(INotificationService), typeof(NotificationService));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

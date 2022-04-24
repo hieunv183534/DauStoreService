@@ -7,3 +7,7 @@ C:\Users\Hi\Desktop\DauStore.Api\DauStore.Infrastructure\obj\Debug\netcoreapp3.1
 C:\Users\Hi\Desktop\DauStore.Api\DauStore.Infrastructure\obj\Debug\netcoreapp3.1\DauStore.Infrastructure.csproj.CoreCompileInputs.cache
 C:\Users\Hi\Desktop\DauStore.Api\DauStore.Infrastructure\obj\Debug\netcoreapp3.1\DauStore.Infrastructure.dll
 C:\Users\Hi\Desktop\DauStore.Api\DauStore.Infrastructure\obj\Debug\netcoreapp3.1\DauStore.Infrastructure.pdb
+C:\Users\Hi\Desktop\DauStore.Api\DauStore.Infrastructure\bin\Debug\netcoreapp3.1\DauStore.Core.dll
+C:\Users\Hi\Desktop\DauStore.Api\DauStore.Infrastructure\bin\Debug\netcoreapp3.1\DauStore.Core.pdb
+C:\Users\Hi\Desktop\DauStore.Api\DauStore.Infrastructure\obj\Debug\netcoreapp3.1\DauStore.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Hi\Desktop\DauStore.Api\DauStore.Infrastructure\obj\Debug\netcoreapp3.1\DauStore.Infrastructure.csproj.CopyComplete

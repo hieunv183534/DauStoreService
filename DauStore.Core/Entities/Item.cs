@@ -11,22 +11,30 @@ namespace DauStore.Core.Entities
 
         }
 
+        [PrimaryKey]
         public Guid ItemId { get; set; }
 
+        [Requied]
+        [NotAllowDuplicate]
         public string ItemCode { get; set; }
 
+        [Requied]
         public string ItemName { get; set; }
 
         public string Description { get; set; }
 
+        [Requied]
         public double RealPrice { get; set; }
 
+        [Requied]
         public float SaleRate { get; set; }
 
+        [Requied]
         public string Medias { get; set; }
 
         public string Tag { get; set; }
 
+        [Requied]
         public string CategoryCode { get; set; }
     }
 }

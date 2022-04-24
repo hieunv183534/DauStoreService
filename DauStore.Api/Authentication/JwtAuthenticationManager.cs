@@ -11,12 +11,13 @@ namespace DauStore.Api.Authentication
     public class JwtAuthenticationManager : IJwtAuthenticationManager
     {
         private readonly string key = "This is my test key";
-        protected IBaseService<User> _userService;
+        protected IBaseService<Account> _accountService;
         protected IBaseService<TokenAccount> _tokenAccountService;
+        private Account _account;
 
-        public JwtAuthenticationManager(IBaseService<User> userService, IBaseService<TokenAccount> tokenAccountService)
+        public JwtAuthenticationManager(IBaseService<Account> accountService, IBaseService<TokenAccount> tokenAccountService)
         {
-            _userService = userService;
+            _accountService = accountService;
             _tokenAccountService = tokenAccountService;
         }
 
@@ -33,7 +34,8 @@ namespace DauStore.Api.Authentication
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.Name, phoneNumber)
+                    new Claim(ClaimTypes.Name, phoneNumber),
+                    new Claim(ClaimTypes.Role, _account.Role)
                 }),
                 Expires = DateTime.UtcNow.AddDays(30),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256Signature)
@@ -58,17 +60,18 @@ namespace DauStore.Api.Authentication
 
         public Boolean CheckAccountLogin(string phoneNumber, string password)
         {
-            var result = _userService.GetByProp("PhoneNumber", phoneNumber);
+            var result = _accountService.GetByProp("Phone", phoneNumber);
             if (result.Response.Data == null)
             {
                 return false;
             }
             else
             {
-                User acc = (User)result.Response.Data;
+                Account acc = (Account)result.Response.Data;
                 bool verified = BCrypt.Net.BCrypt.Verify(password, acc.Password);
                 if (verified)
                 {
+                    _account = acc;
                     return true;
                 }
                 return false;

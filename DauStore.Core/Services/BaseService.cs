@@ -28,7 +28,7 @@ namespace DauStore.Core.Services
         #endregion
 
 
-        public ServiceResult Add(TEntity entity)
+        public virtual ServiceResult Add(TEntity entity)
         {
             try
             {
@@ -41,6 +41,17 @@ namespace DauStore.Core.Services
                     _serviceResult.StatusCode = 400;
                     return _serviceResult;
                 }
+
+                //Mã hóa password
+                var passwordProp = entity.GetType().GetProperty("Password");
+                if (passwordProp != null)
+                {
+
+                    string password = (string)passwordProp.GetValue(entity);
+                    string passwordHash = BCrypt.Net.BCrypt.HashPassword(password);
+                    passwordProp.SetValue(entity, passwordHash);
+                }
+
 
                 // thêm dữ liệu vào db
                 var rowAffect = _baseRepository.Add(entity);
@@ -191,6 +202,18 @@ namespace DauStore.Core.Services
                     return _serviceResult;
                 }
 
+                //Mã hóa password
+                var passwordProp = entity.GetType().GetProperty("Password");
+                if (passwordProp != null)
+                {
+                    string password = (string)passwordProp.GetValue(entity);
+                    if(password.Length < 50)
+                    {
+                        string passwordHash = BCrypt.Net.BCrypt.HashPassword(password);
+                        passwordProp.SetValue(entity, passwordHash);
+                    }
+                }
+
                 // thêm dữ liệu vào db
                 var rowAffect = _baseRepository.Update(entity, entityId);
                 if (rowAffect > 0)
@@ -203,6 +226,34 @@ namespace DauStore.Core.Services
                 {
                     _serviceResult.Response = new ResponseModel(5005, "Unknown Error");
                     _serviceResult.StatusCode = 500;
+                    return _serviceResult;
+                }
+            }
+            catch (Exception ex)
+            {
+                _serviceResult.Response = new ResponseModel(9999, "Exception Error", new { msg = ex.Message });
+                _serviceResult.StatusCode = 500;
+                return _serviceResult;
+            }
+        }
+
+        public ServiceResult GetAll()
+        {
+            try
+            {
+                // xử lí nghiệp vụ lấy dữ liệu
+                // lấy bản ghi theo id
+                var entitys = _baseRepository.GetAll();
+                if (entitys.Count > 0)
+                {
+                    _serviceResult.Response = new ResponseModel(2000, "OK", entitys);
+                    _serviceResult.StatusCode = 200;
+                    return _serviceResult;
+                }
+                else
+                {
+                    _serviceResult.Response = new ResponseModel(2004, "No data or end of list data");
+                    _serviceResult.StatusCode = 204;
                     return _serviceResult;
                 }
             }
@@ -234,7 +285,7 @@ namespace DauStore.Core.Services
                     var propValue = prop.GetValue(entity);
                     if (propValue == null || (propValue.ToString() == String.Empty))
                     {
-                        return new ResponseModel(3002, "Requied!");
+                        return new ResponseModel(3002, $"{prop.Name} Requied!");
                     }
                 }
                 // kiểm tra trùng
@@ -245,7 +296,7 @@ namespace DauStore.Core.Services
                     {
                         return new ResponseModel(3003, "Duplicate field");
                     }
-                    else if (mode == "update")
+                    else if (mode == "update" && entityDuplicate != null)
                     {
                         if (
                             entityDuplicate.GetType().GetProperty($"{typeof(TEntity).Name}Id").GetValue(entityDuplicate).ToString() !=
@@ -283,14 +334,21 @@ namespace DauStore.Core.Services
                 {
                     if (prop.GetValue(entity) != null && prop.GetValue(entity) != "")
                     {
-                        if (!Common.IsValidPassword((string)prop.GetValue(entity)))
+                        string password = (string)prop.GetValue(entity);
+                        bool isHash = (password.Length > 50);
+                        if (!isHash)
                         {
-                            return new ResponseModel(3001, "Password invalid");
+                            if (!Common.IsValidPassword((string)prop.GetValue(entity)))
+                            {
+                                return new ResponseModel(3001, "Password invalid");
+                            }
                         }
                     }
                 }
             }
             return new ResponseModel(-1, "");
         }
+
+        
     }
 }

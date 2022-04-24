@@ -1,13 +1,10 @@
 C:\Users\Hi\Desktop\DauStore.Api\DauStore.Core\bin\Debug\netcoreapp3.1\DauStore.Core.deps.json
 C:\Users\Hi\Desktop\DauStore.Api\DauStore.Core\bin\Debug\netcoreapp3.1\DauStore.Core.dll
 C:\Users\Hi\Desktop\DauStore.Api\DauStore.Core\bin\Debug\netcoreapp3.1\DauStore.Core.pdb
-C:\Users\Hi\Desktop\DauStore.Api\DauStore.Core\bin\Debug\netcoreapp3.1\DauStore.Infrastructure.dll
-C:\Users\Hi\Desktop\DauStore.Api\DauStore.Core\bin\Debug\netcoreapp3.1\DauStore.Infrastructure.pdb
 C:\Users\Hi\Desktop\DauStore.Api\DauStore.Core\obj\Debug\netcoreapp3.1\DauStore.Core.csproj.AssemblyReference.cache
 C:\Users\Hi\Desktop\DauStore.Api\DauStore.Core\obj\Debug\netcoreapp3.1\DauStore.Core.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Hi\Desktop\DauStore.Api\DauStore.Core\obj\Debug\netcoreapp3.1\DauStore.Core.AssemblyInfoInputs.cache
 C:\Users\Hi\Desktop\DauStore.Api\DauStore.Core\obj\Debug\netcoreapp3.1\DauStore.Core.AssemblyInfo.cs
 C:\Users\Hi\Desktop\DauStore.Api\DauStore.Core\obj\Debug\netcoreapp3.1\DauStore.Core.csproj.CoreCompileInputs.cache
-C:\Users\Hi\Desktop\DauStore.Api\DauStore.Core\obj\Debug\netcoreapp3.1\DauStore.Core.csproj.CopyComplete
 C:\Users\Hi\Desktop\DauStore.Api\DauStore.Core\obj\Debug\netcoreapp3.1\DauStore.Core.dll
 C:\Users\Hi\Desktop\DauStore.Api\DauStore.Core\obj\Debug\netcoreapp3.1\DauStore.Core.pdb

@@ -8,6 +8,12 @@ namespace DauStore.Core.Interfaces.IServices
     public interface IBaseService<TEntity>
     {
         /// <summary>
+        /// Lấy hết
+        /// </summary>
+        /// <returns></returns>
+        ServiceResult GetAll();
+
+        /// <summary>
         /// Lấy theo id
         /// </summary>
         /// <param name="entityId"></param>

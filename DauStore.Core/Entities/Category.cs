@@ -11,10 +11,20 @@ namespace DauStore.Core.Entities
 
         }
 
+        [PrimaryKey]
         public Guid CategoryId { get; set; }
 
+        [Requied]
+        [NotAllowDuplicate]
         public string CategoryCode { get; set; }
 
+        [Requied]
         public string CategoryName { get; set; }
+
+        [NotMap]
+        public int SeftCode { get; set; }
+
+        [NotMap]
+        public string ParentCode { get; set; }
     }
 }
