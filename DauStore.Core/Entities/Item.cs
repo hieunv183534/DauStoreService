@@ -19,6 +19,7 @@ namespace DauStore.Core.Entities
         public string ItemCode { get; set; }
 
         [Requied]
+        [NotAllowDuplicate]
         public string ItemName { get; set; }
 
         public string Description { get; set; }

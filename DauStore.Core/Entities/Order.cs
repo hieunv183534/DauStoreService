@@ -26,19 +26,30 @@ namespace DauStore.Core.Entities
         [Requied]
         public string Address { get; set; }
 
-        public OrderStatus Status { get; set; }
+        [Requied]
+        public string UnitCode { get; set; }
+
+        public OrderStatusEnum Status { get; set; }
 
         [Requied]
-        public int PaymentMethod { get; set; }
+        public PaymentMethodEnum PaymentMethod { get; set; }
 
+        [Requied]
         public bool PaymentStatus { get; set; }
 
         [Requied]
         public string Items { get; set; }
 
         [Requied]
-        public double Total { get; set; }
+        public double TotalMoney { get; set; }
 
-        public double Ship { get; set; }
+        public string Ship { get; set; }
+
+        [Requied]
+        public bool ShipPayStatus { get; set; }
+
+        public string Note { get; set; }
+
+        public Guid VoucherId { get; set; }
     }
 }

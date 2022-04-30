@@ -21,10 +21,8 @@ namespace DauStore.Core.Entities
         [Requied]
         public string CategoryName { get; set; }
 
-        [NotMap]
         public int SeftCode { get; set; }
 
-        [NotMap]
         public string ParentCode { get; set; }
     }
 }

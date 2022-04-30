@@ -65,14 +65,6 @@ namespace DauStore.Api.Controllers
             return Ok(new ResponseModel(1000, "OK", new { token = token }));
         }
 
-
-        [HttpGet("test")]
-        public IActionResult Test()
-        {
-            return Ok("12345");
-        }
-
-
         /// <summary>
         /// 
         /// </summary>
@@ -114,12 +106,12 @@ namespace DauStore.Api.Controllers
          {
             var phoneNumber = User.FindFirstValue(ClaimTypes.Name);
             var acc = (Account)_accountService.GetByProp("Phone", phoneNumber).Response.Data;
-            acc.AccountName = account.AccountName;
-            acc.Email = account.Email;
-            acc.Phone = account.Phone;
+            acc.AccountName = (account.AccountName != null) ? account.AccountName : acc.AccountName; 
+            acc.Email = (account.Email != null) ? account.Email : acc.Email;
+            acc.Phone = (account.Phone != null) ? account.Phone : acc.Phone;
             var serviceResult = _accountService.Update(acc,acc.AccountId);
 
-            if(phoneNumber != account.Phone)
+            if(phoneNumber != acc.Phone)
             {
                 var sr = _tokenAccountService.DeleteByProp("Phone", phoneNumber);
             }

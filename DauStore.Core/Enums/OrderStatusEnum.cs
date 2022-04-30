@@ -4,9 +4,8 @@ using System.Text;
 
 namespace DauStore.Core.Enums
 {
-    public enum OrderStatus
+    public enum OrderStatusEnum
     {
-        All = 0,
         Pending = 1,
         Confirmed = 2,
         Delivering = 3,

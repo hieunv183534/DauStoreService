@@ -93,11 +93,30 @@ namespace DauStore.Infrastructure.Repositories
         {
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add($"@{propName}", propValue.ToString());
-            var sql = $"select * from {_tableName} where {propName} = @{propName} ";
+            var sql = $"select * from `{_tableName}` where {propName} = @{propName} ";
             using (var dbConnection = DatabaseConnection.DbConnection)
             {
                 var entity = dbConnection.QueryFirstOrDefault<TEntity>(sql, param: parameters);
                 return entity;
+            }
+        }
+
+        public string GetNewCode()
+        {
+            using (var dbConnection = DatabaseConnection.DbConnection)
+            {
+                var procName = $"Proc_GetNew{_tableName}Code";
+                try
+                {
+                    var newCode = dbConnection.QueryFirstOrDefault(procName, commandType: CommandType.StoredProcedure).NewCode;
+                    return newCode;
+
+                }
+                catch (Exception ex)
+                {
+                    return "SP1001"; 
+                }
+                
             }
         }
 

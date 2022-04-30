@@ -15,13 +15,13 @@ namespace DauStore.Api.Controllers
     {
         #region Declare
 
-        IBaseService<Category> _categoryService;
+        ICategoryService _categoryService;
 
         #endregion
 
         #region Constructor
 
-        public CategoryController(IBaseService<Category> categoryService)
+        public CategoryController(ICategoryService categoryService)
         {
             _categoryService = categoryService;
         }
@@ -36,23 +36,30 @@ namespace DauStore.Api.Controllers
             return StatusCode(serviceResult.StatusCode, serviceResult.Response);
         }
 
+        [Authorize(Roles = "admin")]
         [HttpPost("addCategory")]
         public IActionResult AddCategory([FromBody] Category category)
         {
-            return Ok();
+            var _serviceResult = _categoryService.Add(category);
+            return StatusCode(_serviceResult.StatusCode, _serviceResult.Response);
         }
 
-        [HttpPut("updateCategory")]
-        public IActionResult UpdateCategory()
+        [Authorize(Roles = "admin")]
+        [HttpPut("updateCategory/{categoryId}/{newName}")]
+        public IActionResult UpdateCategory([FromRoute] Guid categoryId, [FromRoute] string newName)
         {
-            return Ok();
+            Category category = new Category();
+            category.CategoryName = newName;
+            var serviceResult = _categoryService.Update(category,categoryId);
+            return StatusCode(serviceResult.StatusCode,serviceResult.Response);
         }
 
-
+        [Authorize(Roles = "admin")]
         [HttpDelete("deleteCategory/{categoryId}")]
         public IActionResult DeleteCategory([FromRoute] Guid categoryId)
         {
-            return Ok();
+            var serviceResult = _categoryService.Delete(categoryId);
+            return StatusCode(serviceResult.StatusCode, serviceResult.Response);
         }
     }
 }

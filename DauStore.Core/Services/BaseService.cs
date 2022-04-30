@@ -76,7 +76,7 @@ namespace DauStore.Core.Services
             }
         }
 
-        public ServiceResult Delete(Guid entityId)
+        public virtual ServiceResult Delete(Guid entityId)
         {
             try
             {
@@ -188,7 +188,7 @@ namespace DauStore.Core.Services
             }
         }
 
-        public ServiceResult Update(TEntity entity, Guid entityId)
+        public virtual ServiceResult Update(TEntity entity, Guid entityId)
         {
             try
             {

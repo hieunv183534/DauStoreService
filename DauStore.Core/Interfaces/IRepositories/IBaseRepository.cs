@@ -62,5 +62,11 @@ namespace DauStore.Core.Interfaces.IRepositories
         /// <returns></returns>
         int DeleteByProp(string propName, object propValue);
 
+        /// <summary>
+        /// lấy mã mới
+        /// </summary>
+        /// <returns></returns>
+        string GetNewCode();
+
     }
 }

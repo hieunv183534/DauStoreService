@@ -88,6 +88,17 @@ namespace DauStore.Api
             services.AddScoped(typeof(INotificationRepository), typeof(NotificationRepository));
             services.AddScoped(typeof(INotificationService), typeof(NotificationService));
 
+            services.AddScoped(typeof(ICategoryService), typeof(CategoryService));
+
+            services.AddScoped(typeof(IItemRepository), typeof(ItemRepository));
+            services.AddScoped(typeof(IItemService), typeof(ItemService));
+
+            services.AddScoped(typeof(IOrderRepository), typeof(OrderRepository));
+            services.AddScoped(typeof(IOrderService), typeof(OrderService));
+
+            services.AddScoped(typeof(IVoucherRepository), typeof(VoucherRepository));
+            services.AddScoped(typeof(IVoucherService), typeof(VoucherService));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
