@@ -19,6 +19,7 @@ namespace DauStore.Core.Services
         public override ServiceResult Add(Category category)
         {
             bool validParent = false;
+            Category categoryParent = null;
             // xử lí nghiệp vụ trước khi add category
             List<Category> categories = _baseRepository.GetAll();
             if (category.ParentCode == "")
@@ -30,6 +31,7 @@ namespace DauStore.Core.Services
                     if (categories[i].CategoryCode == category.ParentCode)
                     {
                         validParent = true;
+                        categoryParent = categories[i];
                         break;
                     }
                 }
@@ -56,9 +58,20 @@ namespace DauStore.Core.Services
                     }
                 }
 
+                // chỉnh sửa lại parent là isExpandable
+                if(categoryParent != null)
+                {
+                    if (!categoryParent.IsExpandable)
+                    {
+                        categoryParent.IsExpandable = true;
+                        _baseRepository.Update(categoryParent, categoryParent.CategoryId);
+                    }
+                }
+
                 // valid name. gọi base để add
                 category.SeftCode = maxCode +1;
-                category.CategoryCode = $"{category.ParentCode}|{category.SeftCode}";
+                category.IsExpandable = false;
+                category.CategoryCode = $"{category.ParentCode}_{category.SeftCode}";
                 return base.Add(category);
             }
             else
@@ -110,6 +123,8 @@ namespace DauStore.Core.Services
             }
             else
             {
+                // xét nếu parent của category này chứa 1 con thì 
+
                 return base.Delete(categoryId);
             }
         }

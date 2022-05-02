@@ -24,5 +24,7 @@ namespace DauStore.Core.Entities
         public int SeftCode { get; set; }
 
         public string ParentCode { get; set; }
+
+        public bool IsExpandable { get; set; }
     }
 }

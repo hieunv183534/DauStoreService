@@ -3,6 +3,7 @@ using DauStore.Core.Interfaces.IRepositories;
 using DauStore.Core.Interfaces.IServices;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace DauStore.Core.Services
@@ -207,7 +208,7 @@ namespace DauStore.Core.Services
                 if (passwordProp != null)
                 {
                     string password = (string)passwordProp.GetValue(entity);
-                    if(password.Length < 50)
+                    if (password.Length < 50)
                     {
                         string passwordHash = BCrypt.Net.BCrypt.HashPassword(password);
                         passwordProp.SetValue(entity, passwordHash);
@@ -246,6 +247,17 @@ namespace DauStore.Core.Services
                 var entitys = _baseRepository.GetAll();
                 if (entitys.Count > 0)
                 {
+                    // Xử lí sắp xếp theo cấp nếu là category
+                    if (typeof(TEntity).Equals(typeof(Category)))
+                    {
+                        var categoryCodeProp = typeof(Category).GetProperty("CategoryCode");
+                        entitys = entitys.OrderBy( e =>
+                        {
+                            string categoryCode = (string)categoryCodeProp.GetValue(e);
+                            return categoryCode.Split('_').Length;
+                        }).ToList();
+                    }
+
                     _serviceResult.Response = new ResponseModel(2000, "OK", entitys);
                     _serviceResult.StatusCode = 200;
                     return _serviceResult;
@@ -349,6 +361,6 @@ namespace DauStore.Core.Services
             return new ResponseModel(-1, "");
         }
 
-        
+
     }
 }

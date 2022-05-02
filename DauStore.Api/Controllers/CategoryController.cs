@@ -40,6 +40,7 @@ namespace DauStore.Api.Controllers
         [HttpPost("addCategory")]
         public IActionResult AddCategory([FromBody] Category category)
         {
+            category.ParentCode = (category.ParentCode == "xxx") ? "" : category.ParentCode;
             var _serviceResult = _categoryService.Add(category);
             return StatusCode(_serviceResult.StatusCode, _serviceResult.Response);
         }

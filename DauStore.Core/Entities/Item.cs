@@ -37,5 +37,7 @@ namespace DauStore.Core.Entities
 
         [Requied]
         public string CategoryCode { get; set; }
+
+        public string CategoryName { get; set; }
     }
 }
