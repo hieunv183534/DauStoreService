@@ -6,6 +6,10 @@ namespace DauStore.Core.Entities
 {
     public class Item : BaseEntity
     {
+        private string description;
+
+        private List<string> listDescription;
+
         public Item()
         {
 
@@ -22,7 +26,22 @@ namespace DauStore.Core.Entities
         [NotAllowDuplicate]
         public string ItemName { get; set; }
 
-        public string Description { get; set; }
+        public string Description 
+        {
+            get { return this.description; }
+            set
+            {
+                this.description = value;
+                if (this.listDescription == null)
+                    this.listDescription = Newtonsoft.Json.JsonConvert.DeserializeObject<List<String>>(value);
+            }
+        }
+
+        public List<string> ListDescription
+        {
+            get { return this.listDescription; }
+            set { this.listDescription = value; }
+        }
 
         [Requied]
         public double RealPrice { get; set; }
@@ -39,5 +58,7 @@ namespace DauStore.Core.Entities
         public string CategoryCode { get; set; }
 
         public string CategoryName { get; set; }
+
+        public int InStock { get; set; }
     }
 }

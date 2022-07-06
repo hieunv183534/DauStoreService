@@ -149,7 +149,7 @@ namespace DauStore.Core.Services
                 else
                 {
                     _serviceResult.Response = new ResponseModel(2004, "No data or end of list data");
-                    _serviceResult.StatusCode = 204;
+                    _serviceResult.StatusCode = 200;
                     return _serviceResult;
                 }
             }
@@ -177,7 +177,7 @@ namespace DauStore.Core.Services
                 else
                 {
                     _serviceResult.Response = new ResponseModel(2004, "No data or end of list data");
-                    _serviceResult.StatusCode = 204;
+                    _serviceResult.StatusCode = 200;
                     return _serviceResult;
                 }
             }
@@ -265,7 +265,7 @@ namespace DauStore.Core.Services
                 else
                 {
                     _serviceResult.Response = new ResponseModel(2004, "No data or end of list data");
-                    _serviceResult.StatusCode = 204;
+                    _serviceResult.StatusCode = 200;
                     return _serviceResult;
                 }
             }

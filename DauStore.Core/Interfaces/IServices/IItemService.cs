@@ -10,5 +10,7 @@ namespace DauStore.Core.Interfaces.IServices
         ServiceResult GetItems(string categoryCode, string searchTerms, string tag, int orderState, int index, int count);
 
         ServiceResult GetNewItemCode();
+
+        ServiceResult ChangeInStock(Guid itemId, int changeNumber);
     }
 }

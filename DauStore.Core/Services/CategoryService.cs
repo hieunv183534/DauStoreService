@@ -69,6 +69,7 @@ namespace DauStore.Core.Services
                 }
 
                 // valid name. gọi base để add
+                category.CategoryDescription = Newtonsoft.Json.JsonConvert.SerializeObject(category.CategoryListDescription);
                 category.SeftCode = maxCode +1;
                 category.IsExpandable = false;
                 category.CategoryCode = $"{category.ParentCode}_{category.SeftCode}";
@@ -86,6 +87,7 @@ namespace DauStore.Core.Services
         {
             var category = _baseRepository.GetById(categoryId);
             category.CategoryName = _category.CategoryName;
+            category.CategoryDescription = Newtonsoft.Json.JsonConvert.SerializeObject(_category.CategoryListDescription);
             List<Category> categories = _baseRepository.GetAll();
             var sameParentsNotSeftSameName =  (from element in categories 
                                       where (element.ParentCode == category.ParentCode) &&
@@ -123,7 +125,8 @@ namespace DauStore.Core.Services
             }
             else
             {
-                // xét nếu parent của category này chứa 1 con thì 
+                // set lại categoryCode của các item có category này
+
 
                 return base.Delete(categoryId);
             }

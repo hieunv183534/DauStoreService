@@ -1,4 +1,5 @@
-using DauStore.Api.Authentication;
+﻿using DauStore.Api.Authentication;
+using DauStore.Core.Entities;
 using DauStore.Core.Interfaces.IRepositories;
 using DauStore.Core.Interfaces.IServices;
 using DauStore.Core.Services;
@@ -66,6 +67,7 @@ namespace DauStore.Api
                 };
             });
 
+
             services.AddScoped(typeof(IJwtAuthenticationManager), typeof(JwtAuthenticationManager));
 
             services.AddCors(options => options.AddPolicy("CorsPolicy",
@@ -98,6 +100,14 @@ namespace DauStore.Api
 
             services.AddScoped(typeof(IVoucherRepository), typeof(VoucherRepository));
             services.AddScoped(typeof(IVoucherService), typeof(VoucherService));
+
+            services.AddOptions(); // Kích hoạt Options
+            var mailsettings = Configuration.GetSection("MailSettings");  // đọc config
+            services.Configure<MailSettings>(mailsettings);                // đăng ký để Inject
+
+            // Đăng ký SendMailService với kiểu Transient, mỗi lần gọi dịch
+            // vụ ISendMailService một đới tượng SendMailService tạo ra (đã inject config)
+            services.AddTransient<IMailService, MailService>();
 
         }
 

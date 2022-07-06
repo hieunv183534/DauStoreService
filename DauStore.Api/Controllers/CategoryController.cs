@@ -46,11 +46,9 @@ namespace DauStore.Api.Controllers
         }
 
         [Authorize(Roles = "admin")]
-        [HttpPut("updateCategory/{categoryId}/{newName}")]
-        public IActionResult UpdateCategory([FromRoute] Guid categoryId, [FromRoute] string newName)
+        [HttpPut("updateCategory/{categoryId}")]
+        public IActionResult UpdateCategory([FromRoute] Guid categoryId, [FromBody] Category category)
         {
-            Category category = new Category();
-            category.CategoryName = newName;
             var serviceResult = _categoryService.Update(category,categoryId);
             return StatusCode(serviceResult.StatusCode,serviceResult.Response);
         }

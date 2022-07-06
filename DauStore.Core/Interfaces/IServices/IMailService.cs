@@ -2,11 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace DauStore.Core.Interfaces.IServices
 {
-    public interface IVoucherService : IBaseService<Voucher>
+    public interface IMailService 
     {
-        ServiceResult GetVouchers( int canuseState ,string searchTerms, int index, int count);
+        void SendMail(MailContent mailContent);
     }
 }

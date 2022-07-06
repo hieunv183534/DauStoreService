@@ -6,6 +6,10 @@ namespace DauStore.Core.Entities
 {
     public class Category : BaseEntity
     {
+        private string categoryDescription;
+
+        private List<string> categoryListDescription;
+
         public Category()
         {
 
@@ -26,5 +30,22 @@ namespace DauStore.Core.Entities
         public string ParentCode { get; set; }
 
         public bool IsExpandable { get; set; }
+
+        public string CategoryDescription
+        {
+            get { return this.categoryDescription; }
+            set
+            {
+                this.categoryDescription = value;
+                if (this.categoryListDescription == null)
+                    this.categoryListDescription = Newtonsoft.Json.JsonConvert.DeserializeObject<List<String>>(value);
+            }
+        }
+
+        public List<string> CategoryListDescription
+        {
+            get { return this.categoryListDescription; }
+            set { this.categoryListDescription = value; }
+        }
     }
 }

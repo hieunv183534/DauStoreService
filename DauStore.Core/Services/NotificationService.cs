@@ -38,7 +38,7 @@ namespace DauStore.Core.Services
                 else
                 {
                     _serviceResult.Response = new ResponseModel(2004, "Không có bản ghi nào!", result);
-                    _serviceResult.StatusCode = 204;
+                    _serviceResult.StatusCode = 200;
                     return _serviceResult;
                 }
             }

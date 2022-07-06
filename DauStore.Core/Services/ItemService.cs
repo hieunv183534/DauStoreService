@@ -34,7 +34,7 @@ namespace DauStore.Core.Services
                 else
                 {
                     _serviceResult.Response = new ResponseModel(2004, "Không có bản ghi nào!", result);
-                    _serviceResult.StatusCode = 204;
+                    _serviceResult.StatusCode = 200;
                     return _serviceResult;
                 }
             }
@@ -48,47 +48,69 @@ namespace DauStore.Core.Services
 
         public override ServiceResult Add(Item item)
         {
-            if (ValidateItemCode(item.ItemCode))
+
+            try
             {
-                if (ValidateCategoryCode(item.CategoryCode))
+                if (ValidateItemCode(item.ItemCode))
                 {
-                    return base.Add(item);
+                    if (ValidateCategoryCode(item.CategoryCode))
+                    {
+                        item.Description = Newtonsoft.Json.JsonConvert.SerializeObject(item.ListDescription);
+                        return base.Add(item);
+                    }
+                    else
+                    {
+                        _serviceResult.Response = new ResponseModel(4001, "CategoryCode không đúng định dạng!");
+                        _serviceResult.StatusCode = 400;
+                        return _serviceResult;
+                    }
                 }
                 else
                 {
-                    _serviceResult.Response = new ResponseModel(4001, "CategoryCode không đúng định dạng!");
+                    _serviceResult.Response = new ResponseModel(4001, "Mã sản phẩm không đúng định dạng!");
                     _serviceResult.StatusCode = 400;
                     return _serviceResult;
                 }
             }
-            else
+            catch (Exception ex)
             {
-                _serviceResult.Response = new ResponseModel(4001, "Mã sản phẩm không đúng định dạng!");
-                _serviceResult.StatusCode = 400;
+                _serviceResult.Response = new ResponseModel(9999, "Exception Error", new { msg = ex.Message });
+                _serviceResult.StatusCode = 500;
                 return _serviceResult;
             }
         }
 
         public override ServiceResult Update(Item item, Guid itemId)
         {
-            if ( (item.ItemCode != null && ValidateItemCode(item.ItemCode)) || item.ItemCode == null)
+
+            try
             {
-                if (ValidateCategoryCode(item.CategoryCode))
+                if ((item.ItemCode != null && ValidateItemCode(item.ItemCode)) || item.ItemCode == null)
                 {
-                    item.ItemId = itemId;
-                    return base.Update(item, itemId);
+                    if (ValidateCategoryCode(item.CategoryCode))
+                    {
+                        item.ItemId = itemId;
+                        item.Description = Newtonsoft.Json.JsonConvert.SerializeObject(item.ListDescription);
+                        return base.Update(item, itemId);
+                    }
+                    else
+                    {
+                        _serviceResult.Response = new ResponseModel(4001, "CategoryCode không đúng định dạng!");
+                        _serviceResult.StatusCode = 400;
+                        return _serviceResult;
+                    }
                 }
                 else
                 {
-                    _serviceResult.Response = new ResponseModel(4001, "CategoryCode không đúng định dạng!");
+                    _serviceResult.Response = new ResponseModel(4001, "Mã sản phẩm không đúng định dạng!");
                     _serviceResult.StatusCode = 400;
                     return _serviceResult;
                 }
             }
-            else
+            catch (Exception ex)
             {
-                _serviceResult.Response = new ResponseModel(4001, "Mã sản phẩm không đúng định dạng!");
-                _serviceResult.StatusCode = 400;
+                _serviceResult.Response = new ResponseModel(9999, "Exception Error", new { msg = ex.Message });
+                _serviceResult.StatusCode = 500;
                 return _serviceResult;
             }
         }
@@ -127,6 +149,23 @@ namespace DauStore.Core.Services
                 string newCode = _baseRepository.GetNewCode();
                 _serviceResult.Response = new ResponseModel(2000, "OK", newCode);
                 _serviceResult.StatusCode = 200;
+                return _serviceResult;
+            }
+            catch (Exception ex)
+            {
+                _serviceResult.Response = new ResponseModel(9999, "Exception Error", new { msg = ex.Message });
+                _serviceResult.StatusCode = 500;
+                return _serviceResult;
+            }
+        }
+
+        public ServiceResult ChangeInStock(Guid itemId, int changeNumber)
+        {
+            try
+            {
+                int rows = _itemRepository.ChangInStock(changeNumber, itemId);
+                _serviceResult.Response = new ResponseModel(2001, "OK", rows);
+                _serviceResult.StatusCode = 201;
                 return _serviceResult;
             }
             catch (Exception ex)

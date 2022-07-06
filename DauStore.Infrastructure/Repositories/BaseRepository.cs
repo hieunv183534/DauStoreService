@@ -51,6 +51,7 @@ namespace DauStore.Infrastructure.Repositories
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add($"@{_tableName}Id", entityId);
                 var rowAffect = dbConnection.Execute(procName, param: parameters, commandType: CommandType.StoredProcedure);
+                if (_tableName.Equals("Category")) rowAffect++;
                 return rowAffect;
             }
         }

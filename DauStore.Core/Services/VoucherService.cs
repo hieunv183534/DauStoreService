@@ -3,6 +3,7 @@ using DauStore.Core.Interfaces.IRepositories;
 using DauStore.Core.Interfaces.IServices;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace DauStore.Core.Services
@@ -17,14 +18,32 @@ namespace DauStore.Core.Services
             _voucherRepository = voucherRepository;
         }
 
-        public ServiceResult GetVouchers(string searchTerms, int index, int count)
+        public ServiceResult GetVouchers(int canuseState, string searchTerms, int index, int count)
         {
             try
             {
+                searchTerms = (searchTerms == null) ? "" : searchTerms;
+                List<Voucher> vouchers = _voucherRepository.GetAll();
+                // lọc theo mã còn sử dụng hay không sử dụng được
+                if (canuseState == 1)
+                {
+                    // lấy các voucher vừa còn hạn vừa còn quota
+                    vouchers = (from voucher in vouchers where (voucher.Quota > 0) && (voucher.DateExpired > DateTime.Now) select voucher).ToList();
+                }
+                else if (canuseState == 2)
+                {
+                    // lấy các voucher hoặc hết hạn hoặc hết quota
+                    vouchers = (from voucher in vouchers where (voucher.Quota <= 0) || (voucher.DateExpired <= DateTime.Now) select voucher).ToList();
+                }
 
-                var result = _voucherRepository.GetVouchers(searchTerms, index, count);
-                List<Voucher> data = (List<Voucher>)result.GetType().GetProperty("data").GetValue(result, null);
-                if (data.Count > 0)
+                vouchers = (from voucher in vouchers where (voucher.VoucherCode.Contains(searchTerms)) || (voucher.Description.Contains(searchTerms)) select voucher).ToList();
+                var result = new
+                {
+                    total = vouchers.Count,
+                    data = vouchers.Skip(index).Take(count).ToList()
+                };
+
+                if (vouchers.Count > 0)
                 {
                     _serviceResult.Response = new ResponseModel(2000, "Ok", result);
                     _serviceResult.StatusCode = 200;
@@ -33,7 +52,7 @@ namespace DauStore.Core.Services
                 else
                 {
                     _serviceResult.Response = new ResponseModel(2004, "Không có bản ghi nào!", result);
-                    _serviceResult.StatusCode = 204;
+                    _serviceResult.StatusCode = 200;
                     return _serviceResult;
                 }
             }

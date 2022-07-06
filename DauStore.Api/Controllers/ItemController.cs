@@ -67,5 +67,13 @@ namespace DauStore.Api.Controllers
             var serviceResult = _itemService.GetNewItemCode();
             return StatusCode(serviceResult.StatusCode, serviceResult.Response);
         }
+
+        [Authorize(Roles = "admin")]
+        [HttpPut("changeInStock/{itemId}/{changeNumber}")]
+        public IActionResult ChangeInStock([FromRoute] Guid itemId, [FromRoute] int changeNumber)
+        {
+            var serviceResult = _itemService.ChangeInStock(itemId, changeNumber);
+            return StatusCode(serviceResult.StatusCode, serviceResult.Response);
+        }
     }
 }

@@ -22,9 +22,9 @@ namespace DauStore.Api.Controllers
 
         [Authorize(Roles = "admin")]
         [HttpGet("getVouchers")]
-        public IActionResult GetVouchers([FromQuery] string searchTerms, [FromQuery] int index, [FromQuery] int count)
+        public IActionResult GetVouchers([FromQuery] string searchTerms, [FromQuery] int canuseState , [FromQuery] int index, [FromQuery] int count)
         {
-            var serviceResult = _voucherService.GetVouchers(searchTerms, index, count);
+            var serviceResult = _voucherService.GetVouchers(canuseState,searchTerms, index, count);
             return StatusCode(serviceResult.StatusCode, serviceResult.Response);
         }
 
@@ -57,6 +57,14 @@ namespace DauStore.Api.Controllers
         public IActionResult GetVoucherByCode([FromRoute] string voucherCode)
         {
             var serviceResult = _voucherService.GetByProp("VoucherCode",voucherCode);
+            return StatusCode(serviceResult.StatusCode, serviceResult.Response);
+        }
+
+        [AllowAnonymous]
+        [HttpGet("getVoucherById/{voucherId}")]
+        public IActionResult GetVoucherById([FromRoute] Guid voucherId)
+        {
+            var serviceResult = _voucherService.GetById(voucherId);
             return StatusCode(serviceResult.StatusCode, serviceResult.Response);
         }
     }

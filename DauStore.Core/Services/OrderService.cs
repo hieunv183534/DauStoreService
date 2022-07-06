@@ -13,13 +13,16 @@ namespace DauStore.Core.Services
 
         protected IOrderRepository _orderRepository;
         protected IItemRepository _itemRepository;
-        protected IBaseRepository<Voucher> _voucherRepository;
+        protected IVoucherRepository _voucherRepository;
+        protected IMailService _mailService;
 
-        public OrderService(IBaseRepository<Order> baseRepository, IOrderRepository orderRepository, IItemRepository itemRepository, IBaseRepository<Voucher> voucherRepository) : base(baseRepository)
+        public OrderService(IBaseRepository<Order> baseRepository, IOrderRepository orderRepository,
+            IItemRepository itemRepository, IVoucherRepository voucherRepository, IMailService mailService) : base(baseRepository)
         {
             _orderRepository = orderRepository;
             _itemRepository = itemRepository;
             _voucherRepository = voucherRepository;
+            _mailService = mailService;
         }
 
         public ServiceResult GetOrders(OrderStatusEnum orderStatus, string searchTerms, double startTime, double endTime, int orderTimeState, int index, int count)
@@ -38,7 +41,7 @@ namespace DauStore.Core.Services
                 else
                 {
                     _serviceResult.Response = new ResponseModel(2004, "Không có bản ghi nào!", result);
-                    _serviceResult.StatusCode = 204;
+                    _serviceResult.StatusCode = 200;
                     return _serviceResult;
                 }
             }
@@ -55,6 +58,7 @@ namespace DauStore.Core.Services
             
             try
             {
+                bool useVoucher = false;
                 // xử lí nghiệp vụ trước khi add order
                 var newCode = _orderRepository.GetNewCode(); 
                 order.OrderCode = newCode;
@@ -83,24 +87,27 @@ namespace DauStore.Core.Services
                         return _serviceResult;
                     }
 
-                    if(voucher.SaleNumber != 0)
+                    
+
+                    if (order.TotalMoney >= voucher.MinTotal)
                     {
-                        order.TotalMoney = order.TotalMoney - voucher.SaleNumber;
-                    }
-                    else
-                    {
-                        if(order.TotalMoney >= voucher.MinTotal)
+                        if (voucher.SaleNumber != 0)
+                        {
+                            order.TotalMoney = order.TotalMoney - voucher.SaleNumber;
+                        }
+                        else
                         {
                             double sale = order.TotalMoney * voucher.SaleRate;
                             sale = (sale > voucher.MaxNumber) ? voucher.MaxNumber : sale;
                             order.TotalMoney = (int)(order.TotalMoney - sale);
                         }
-                        else
-                        {
-                            _serviceResult.Response = new ResponseModel(4001, "Số tiền đơn hàng chưa đủ để nhận voucher!");
-                            _serviceResult.StatusCode = 400;
-                            return _serviceResult;
-                        }
+                        useVoucher = true;
+                    }
+                    else
+                    {
+                        _serviceResult.Response = new ResponseModel(4001, "Số tiền đơn hàng chưa đủ để nhận voucher!");
+                        _serviceResult.StatusCode = 400;
+                        return _serviceResult;
                     }
                 }
                     
@@ -124,6 +131,26 @@ namespace DauStore.Core.Services
                 {
                     _serviceResult.Response = new ResponseModel(2001, "Cập nhật, thêm dữ liệu thành công", new { orderCode = newCode });
                     _serviceResult.StatusCode = 201;
+                    string link = "https://daustore.store/page/pay.html?orderCode=" + newCode;
+                    if (useVoucher)
+                    {
+                        _voucherRepository.UseVoucher(order.VoucherId);
+                    }
+                    ChangeInStock(order.Items);
+                    _mailService.SendMail(new MailContent
+                    {
+                        To = order.Email ,
+                        Subject = $"Đặt hàng trên daustore mã đơn {newCode}",
+                        Body = @$"<p><strong>Bạn đã đặt hàng thành công đơn hàng {newCode} tổng {order.TotalMoney} VND</strong></p><br>
+                                   Xem chi tiết đơn hàng tại đây <a href={link}>{link}</a>"
+                    });
+                    _mailService.SendMail(new MailContent
+                    {
+                        To = "daustore.shop@gmail.com",
+                        Subject = $"Đơn mới trên daustore mã đơn {newCode}",
+                        Body = $"<p><strong>Có đơn mới trên daustore!</strong></p><br>" +
+                        $"Số điện thoại khách hàng: {order.Phone}"
+                    });
                     return _serviceResult;
                 }
                 else
@@ -194,6 +221,7 @@ namespace DauStore.Core.Services
         {
             try
             {
+                bool useVoucher = false;
                 // xử lí nghiệp vụ trước khi update Order by admin
                 Order order = _orderRepository.GetById(orderId);
                 if (order == null)
@@ -239,24 +267,25 @@ namespace DauStore.Core.Services
                         return _serviceResult;
                     }
 
-                    if (voucher.SaleNumber != 0)
+                    if (order.TotalMoney >= voucher.MinTotal)
                     {
-                        order.TotalMoney = order.TotalMoney - voucher.SaleNumber;
-                    }
-                    else
-                    {
-                        if (order.TotalMoney >= voucher.MinTotal)
+                        if (voucher.SaleNumber != 0)
+                        {
+                            order.TotalMoney = order.TotalMoney - voucher.SaleNumber;
+                        }
+                        else
                         {
                             double sale = order.TotalMoney * voucher.SaleRate;
                             sale = (sale > voucher.MaxNumber) ? voucher.MaxNumber : sale;
                             order.TotalMoney = (int)(order.TotalMoney - sale);
                         }
-                        else
-                        {
-                            _serviceResult.Response = new ResponseModel(4001, "Số tiền đơn hàng chưa đủ để nhận voucher!");
-                            _serviceResult.StatusCode = 400;
-                            return _serviceResult;
-                        }
+                        useVoucher = true;
+                    }
+                    else
+                    {
+                        _serviceResult.Response = new ResponseModel(4001, "Số tiền đơn hàng chưa đủ để nhận voucher!");
+                        _serviceResult.StatusCode = 400;
+                        return _serviceResult;
                     }
                 }
 
@@ -278,6 +307,10 @@ namespace DauStore.Core.Services
                 {
                     _serviceResult.Response = new ResponseModel(2001, "OK", rowAffect);
                     _serviceResult.StatusCode = 201;
+                    if (useVoucher)
+                    {
+                        _voucherRepository.UseVoucher(order.VoucherId);
+                    }
                     return _serviceResult;
                 }
                 else
@@ -295,31 +328,6 @@ namespace DauStore.Core.Services
             }
         }
 
-        private Object CalculateMoney(string itemsText)
-        {
-            double totalMoney = 0;
-            var itemArrStr = itemsText.Trim().Split(' ');
-            List<string> items = new List<string>();
-            for (int i = 0; i < itemArrStr.Length; i++)
-            {
-                Guid itemId = Guid.Parse(itemArrStr[i].Split('|')[1]);
-                int quantity = Int32.Parse(itemArrStr[i].Split('|')[0]);
-                var item = _itemRepository.GetById(itemId);
-                if (item == null)
-                {
-                    throw new Exception("Id item trong itemText không đúng. Không tìm thấy item tương ứng");
-                }
-                int itemMoney = (int)(quantity*(item.RealPrice *(1 - item.SaleRate)));
-                totalMoney += itemMoney;
-                items.Add($"{quantity}|{itemId}|{itemMoney}");
-            }
-            return new
-            {
-                totalMoney = totalMoney,
-                items = String.Join(' ', items)
-            };
-        }
-
         public ServiceResult LookupOrder(string key)
         {
             try
@@ -335,7 +343,7 @@ namespace DauStore.Core.Services
                 else
                 {
                     _serviceResult.Response = new ResponseModel(2004, "Không có bản ghi nào!", orders);
-                    _serviceResult.StatusCode = 204;
+                    _serviceResult.StatusCode = 200;
                     return _serviceResult;
                 }
             }
@@ -345,6 +353,45 @@ namespace DauStore.Core.Services
                 _serviceResult.StatusCode = 500;
                 return _serviceResult;
             }
+        }
+
+        private Object CalculateMoney(string itemsText)
+        {
+            double totalMoney = 0;
+            var itemArrStr = itemsText.Trim().Split(" _and_ ");
+            List<string> items = new List<string>();
+            for (int i = 0; i < itemArrStr.Length; i++)
+            {
+                Guid itemId = Guid.Parse(itemArrStr[i].Split('|')[1]);
+                int quantity = Int32.Parse(itemArrStr[i].Split('|')[0]);
+                var item = _itemRepository.GetById(itemId);
+                if (item == null)
+                {
+                    throw new Exception("Id item trong itemText không đúng. Không tìm thấy item tương ứng");
+                }else if(item.InStock < quantity)
+                {
+                    throw new Exception($"Sản phẩm {item.ItemCode} trong kho không đủ số lượng");
+                }
+                int itemMoney = (int)(quantity*(item.RealPrice *(1 - item.SaleRate / 100)));
+                totalMoney += itemMoney;
+                items.Add($"{quantity}|{itemId}|{itemMoney}|{item.Medias.Split(' ')[0]}|{item.ItemName}");
+            }
+            return new
+            {
+                totalMoney = totalMoney,
+                items = String.Join(" _and_ ", items)
+            };
+        }
+
+        private bool ChangeInStock(string items)
+        {
+            var itemArrs = items.Split(" _and_ ");
+            foreach (var item in itemArrs)
+            {
+                var _item = item.Split('|');
+                _itemRepository.ChangInStock( -Int32.Parse(_item[0]) , Guid.Parse(_item[1]));
+            }
+            return true;
         }
     }
 }

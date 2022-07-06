@@ -23,6 +23,8 @@ namespace DauStore.Core.Entities
         [Requied]
         public string Phone { get; set; }
 
+        public string Email { get; set; }
+
         [Requied]
         public string Address { get; set; }
 

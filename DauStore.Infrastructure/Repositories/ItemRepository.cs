@@ -10,6 +10,19 @@ namespace DauStore.Infrastructure.Repositories
 {
     public class ItemRepository : BaseRepository<Item>, IItemRepository
     {
+        public int ChangInStock(int changeNumber, Guid itemId)
+        {
+            using (var dbConnection = DatabaseConnection.DbConnection)
+            {
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@ChangeNumber", changeNumber);
+                parameters.Add("@ItemId", itemId);
+                var procName = $"Proc_ChangeInStock";
+                int rows = dbConnection.Execute(procName, param: parameters, commandType: CommandType.StoredProcedure);
+                return rows;
+            }
+        }
+
         public object GetItems(string categoryCode, string searchTerms, string tag, int orderState, int index, int count)
         {
             using (var dbConnection = DatabaseConnection.DbConnection)

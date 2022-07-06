@@ -7,6 +7,7 @@ namespace DauStore.Core.Interfaces.IRepositories
 {
     public interface IVoucherRepository : IBaseRepository<Voucher>
     {
-        Object GetVouchers(string searchTerms, int index, int count);
+        //List<Voucher> GetVouchers(string searchTerms, int index, int count);
+        int UseVoucher(Guid voucherId);
     }
 }
