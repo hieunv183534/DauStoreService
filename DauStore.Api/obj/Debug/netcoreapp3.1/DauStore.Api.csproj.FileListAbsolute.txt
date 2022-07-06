@@ -46,3 +46,12 @@ C:\Users\Hi\Desktop\DauStore.Api\DauStore.Api\bin\Debug\netcoreapp3.1\Microsoft.
 C:\Users\Hi\Desktop\DauStore.Api\DauStore.Api\bin\Debug\netcoreapp3.1\MimeKit.dll
 C:\Users\Hi\Desktop\DauStore.Api\DauStore.Api\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
 C:\Users\Hi\Desktop\DauStore.Api\DauStore.Api\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Hi\Desktop\DauStore.Api\DauStore.Api\bin\Debug\netcoreapp3.1\GemBox.Document.dll
+C:\Users\Hi\Desktop\DauStore.Api\DauStore.Api\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+C:\Users\Hi\Desktop\DauStore.Api\DauStore.Api\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
+C:\Users\Hi\Desktop\DauStore.Api\DauStore.Api\bin\Debug\netcoreapp3.1\System.Text.Encoding.CodePages.dll
+C:\Users\Hi\Desktop\DauStore.Api\DauStore.Api\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\GemBox.Document.dll
+C:\Users\Hi\Desktop\DauStore.Api\DauStore.Api\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Hi\Desktop\DauStore.Api\DauStore.Api\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Hi\Desktop\DauStore.Api\DauStore.Api\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Hi\Desktop\DauStore.Api\DauStore.Api\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Text.Encoding.CodePages.dll

@@ -55,6 +55,10 @@
               "target": "Package",
               "version": "[4.0.3, )"
             },
+            "GemBox.Document": {
+              "target": "Package",
+              "version": "[35.0.1020, )"
+            },
             "Microsoft.AspNetCore.Authentication": {
               "target": "Package",
               "version": "[2.2.0, )"

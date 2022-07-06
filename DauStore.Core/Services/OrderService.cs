@@ -4,6 +4,7 @@ using DauStore.Core.Interfaces.IRepositories;
 using DauStore.Core.Interfaces.IServices;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace DauStore.Core.Services
