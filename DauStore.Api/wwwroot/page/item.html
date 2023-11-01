@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dâu Store Item</title>
+    <link rel="icon" type="image/png" href="../favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+        integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/layout/home.css">
+    <script src="../lib/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <!-- start nav-bar -->
+    <input type="checkbox" name="" id="open-menu-status">
+    <input type="checkbox" name="" id="open-category-status">
+    <div class="nav-bar">
+        <div class="nav-bar-left">
+            <div class="logo"></div>
+            <a class="menu-item" href="#category">
+                <i class="fa fa-clipboard-list"></i>
+                <p>Danh mục sản phẩm</p>
+            </a>
+            <input type="text" class="input search-box" placeholder="Tìm kiếm sản phẩm">
+            <button class="button button-secondary button-icon btn-search">
+                <i class="fa fa-magnifying-glass" style="color: var(--pink-color);"></i>
+            </button>
+        </div>
+        <div class="nav-bar-center">
+            <a class="menu-item cart" href="./cart.html" count="0">
+                <i class="fa fa-cart-shopping" style="font-size: 24px;"></i>
+                <p>Giỏ hàng</p>
+                <div class="cart-count">0</div>
+            </a>
+            <a class="menu-item" href="./order-lookup.html">
+                <i class="fa fa-clock-rotate-left"></i>
+                <p>Tra cứu đơn hàng</p>
+            </a>
+        </div>
+        <div class="nav-bar-right">
+            <div class="menu-item notification">
+                <i class="fa fa-bell"></i>
+                <p>Thông báo</p>
+            </div>
+            <a class="menu-item" href="#lienhe">
+                <i class="fa fa-question"></i>
+                <p>Hỗ trợ</p>
+            </a>
+            <a class="menu-item" href="./login.html">
+                <p>Đăng nhập</p>
+            </a>
+            <a class="menu-item" href="./register.html">
+                <p>Đăng kí</p>
+            </a>
+        </div>
+    </div>
+    <div class="nav-mobile">
+        <div class="nav-top">
+            <span>
+                <div class="logo"></div>
+                <h3>Dâu Store</h3>
+            </span>
+            <label class="menu-item" for="open-category-status">
+                <i class="fa fa-clipboard-list"></i>
+                <p>Danh mục sản phẩm</p>
+            </label>
+            <label class="open-menu" for="open-menu-status">
+                <i class="fa fa-bars" style="color: #fff;"></i>
+            </label>
+        </div>
+        <div class="nav-bottom">
+            <span>
+                <input type="text" class="input search-box" placeholder="Tìm kiếm sản phẩm">
+                <button class="button button-secondary button-icon btn-search">
+                    <i class="fa fa-magnifying-glass" style="color: var(--pink-color);"></i>
+                </button>
+            </span>
+            <span>
+                <a class="menu-item cart" href="./cart.html" count="0">
+                    <i class="fa fa-cart-shopping" style="font-size: 24px;"></i>
+                    <p>Giỏ hàng</p>
+                    <div class="cart-count">0</div>
+                </a>
+                <div class="menu-item notification">
+                    <i class="fa fa-bell"></i>
+                    <p>Thông báo</p>
+                </div>
+            </span>
+        </div>
+    </div>
+    <div class="menu-bar">
+        <label class="close-menu" for="open-menu-status">
+            <i class="fa fa-times"></i>
+        </label>
+        <a class="menu-item" href="./order-lookup.html">
+            <i class="fa fa-clock-rotate-left"></i>
+            <p>Tra cứu đơn hàng</p>
+        </a>
+        <a class="menu-item" href="#lienhe">
+            <i class="fa fa-question"></i>
+            <p>Hỗ trợ</p>
+        </a>
+        <a class="menu-item" href="./login.html">
+            <p>Đăng nhập</p>
+        </a>
+        <a class="menu-item" href="./register.html">
+            <p>Đăng kí</p>
+        </a>
+    </div>
+    <label class="nav-overlay" for="open-menu-status"></label>
+    <div class="category-bar">
+        <label class="close-category" for="open-category-status">
+            <i class="fa fa-times"></i>
+        </label>
+        <div class="tree-bar-wrapper">
+            <div class="category-main" id="categoryMainx">
+                <font style="color: #186CD8; font-size: 12px;">Đã chọn: </font> <span>Tất cả sản phẩm</span>
+            </div>
+            <nav class="tree-nav" id="categoryx">
+
+            </nav>
+        </div>
+    </div>
+    <label class="category-overlay" for="open-category-status"></label>
+    <!-- end nav-bar -->
+    <div class="content">
+        <div class="grid wide">
+            <div class="row main-item-block">
+                <div class="col l-5 m-5 c-12">
+                    <div class="main-img-wrapper">
+                        <img class="main-item-img"
+                            src="https://webstyle.unicomm.fsu.edu/3.4/img/placeholders/ratio-pref-1-1.png" alt="">
+                        <div class="pre-img"><i class="fa-solid fa-chevron-left"></i></div>
+                        <div class="next-img"><i class="fa-solid fa-chevron-right"></i></div>
+                        <div class="index-img">2/3</div>
+                    </div>
+                </div>
+                <div class="col l-7 m-7 c-12">
+                    <div class="item-info-wrapper">
+                        <div class="main-item-title">
+                            <h2 class="main-item-name"></h2>
+                            <p>Mã sản phẩm: <span class="main-item-code"></span></p>
+                        </div>
+                        <div class="main-item-price">
+                            <p>Giá khuyến mãi:</p>
+                            <div class="main-sale-price"></div>
+                            <div class="main-real-price"></div>
+                            <div class="main-sale-rate"></div>
+                        </div>
+                        <div class="main-item-quantity">
+                            <span>Số lượng: </span>
+                            <span style="display: flex;">
+                                <div class="down-quantity"><i class="fa-solid fa-minus"></i></div>
+                                <input type="number" min="1" class="input-quantity" value="1">
+                                <div class="up-quantity"><i class="fa-solid fa-plus"></i></div>
+                            </span>
+                            <span id="valueInStock">Kho: &nbsp; 999</span>
+                        </div>
+                        <div class="main-item-footer">
+                            <button class="main-like-item"><i class="fa-solid fa-heart"></i></button>
+                            <button class="main-add-to-cart"><i class="fa-solid fa-cart-plus"
+                                    style="margin-right: 5px;"></i>Thêm vào giỏ hàng</button>
+                            <button class="main-buy-now">Mua ngay</button>
+                        </div>
+                        <div class="out-of-stock">
+                            <p>HẾT HÀNG</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row main-item-description">
+                <div class="col l-12 m-12 c12">
+                    <h3>Chi tiết sản phẩm</h3>
+                    <ul>
+                        <li>
+                            <b>Xuất xứ: </b>
+                            <p>Trung Quốc</p>
+                        </li>
+                        <li>
+                            <b>Chất liệu: </b>
+                            <p>Dictumst interdum, in tempora, sapien, tellus nec consequatur praesent sapiente eos
+                                asperiores senectus nunc tempora non, ac! Fusce maiores massa. Vivamus tempora bibendum
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="grid wide">
+            <div class="row" style="font-size: 18px; font-weight: bold; margin-bottom: 15px; margin-left: 8px; margin-top: 4px;">
+                CÓ THỂ BẠN CŨNG THÍCH
+            </div>
+            <div class="row">
+                <div class="col l-2 m-0 c-0">
+                    <div class="category-main" id="categoryMain">
+                        <font style="color: #186CD8; font-size: 12px;"">Đã chọn:  </font> <span>Tất cả sản phẩm</span></div>
+                    <nav class=" tree-nav" id="category">
+
+                            </nav>
+                    </div>
+                    <div class="col l-10 m-12 c-12">
+                        <div class="row list-item">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin: 10px 0;">
+                    <div class="col l-10 l-o-2 m-12 c-12">
+                        <div class="paging-bar">
+                            <div class="paging-bar-left">
+                                <p id="pagingInfo"> <strong>Trang 1 / 15</strong></p>
+                            </div>
+                            <div class="paging-bar-right">
+                                <button class="pre-page">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <button class="next-page">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="grid wide">
+            <div class="row">
+                <div class="col l-3 m-6 c-8 c-o-2">
+                    <div class="footer-block">
+                        <h4 class="footer-title"><b>HỖ TRỢ KHÁCH HÀNG</b></h4>
+                        <a href="" class="footer-item">Trung tâm trợ giúp</a>
+                        <a href="" class="footer-item">An toàn mua bán</a>
+                        <a href="" class="footer-item">Quy định cần biết</a>
+                        <a href="" class="footer-item">Liên hệ hỗ trợ</a>
+                    </div>
+                </div>
+                <div class="col l-3 m-6 c-8 c-o-2">
+                    <div class="footer-block">
+                        <h4 class="footer-title"><b>VỀ DÂU STORE</b></h4>
+                        <a href="" class="footer-item">Giới thiệu</a>
+                        <a href="" class="footer-item">Tuyển dụng</a>
+                        <a href="" class="footer-item">Truyền thông</a>
+                        <a href="" class="footer-item">Blog</a>
+                    </div>
+                </div>
+                <div class="col l-3 m-6 c-8 c-o-2">
+                    <div class="footer-block" id="lienhe">
+                        <h4 class="footer-title"><b>LIÊN HỆ</b> <span
+                                style="font-weight: lighter; font-size: 10px;">(Click vào để liên hệ ngay)</span></h4>
+                        <a href="http://maps.google.com/?q=37 P. Bằng Liệt, Hoàng Liệt, Hoàng Mai, Hà Nội, Vietnam"
+                            target="_blank" class="footer-item"><i class="fa-solid fa-location-dot"></i>37 Bằng
+                            Liệt,Hoàng Mai,Hà
+                            Nội</a>
+                        <a href="mailto:baotram010298@gmail.com" class="footer-item"><i
+                                class="fa-solid fa-envelope"></i>baotram010298@gmail.com</a>
+                        <a href="tel:0974300198" class="footer-item"><i class="fa-solid fa-phone"></i>0974300198</a>
+                        <a href="" class="footer-item"><i class="fa-solid fa-clock"></i>Tất cả ngày giờ trong tuần</a>
+                    </div>
+                </div>
+                <div class="col l-3 m-6 c-8 c-o-2">
+                    <div class="footer-block">
+                        <h4 class="footer-title"><b>KẾT NỐI VỚI CHÚNG TÔI</b></h4>
+                        <div class="row">
+                            <a href="https://www.facebook.com/D%C3%A2u-store-104210735561967" class="footer-item">
+                                <img src="https://static.chotot.com/storage/default/facebook.svg" alt="">
+                            </a>
+                            <a href="" class="footer-item">
+                                <img src="https://static.chotot.com/storage/default/youtube.svg" alt="">
+                            </a>
+                        </div>
+                        <div class="row">
+                            <a href="" class="footer-item"><img src="../assets/image/tiktok-round-color.png" alt=""
+                                    style="transform: scale(1.14);"></a>
+                            <a href="" class="footer-item"><img src="../assets/image/instagram.png" alt=""
+                                    style="transform: scale(1.14);"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="data-list">
+    </div>
+
+    <div class="toast-messenger" type="success" isShow="hide">
+        <i class="mes-icon fas fa-exclamation-circle"></i>
+        <i class="mes-icon fas fa-check-circle"></i>
+        <div class="mes-text">Thêm mới thành công</div>
+    </div>
+
+    <div class="loader" isShow="hide">
+        <div class="loader-modal"></div>
+        <div class="loader-icon"></div>
+    </div>
+
+    <div class="to-top">
+        <i class="fa-solid fa-angle-up"></i>
+    </div>
+
+    <!-- start facebook chat -->
+    <div id="fb-root"></div>
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+    <script>
+        var chatbox = document.getElementById('fb-customer-chat');
+        chatbox.setAttribute("page_id", "104210735561967");
+        chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                xfbml: true,
+                version: 'v13.0'
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <!-- end facebook chat -->
+
+    <script src="../js/common/common.js"></script>
+    <script src="../js/api/baseApi.js"></script>
+    <script src="../js/page/base.js"></script>
+    <script src="../js/page/item.js"></script>
+</body>
+
+</html>

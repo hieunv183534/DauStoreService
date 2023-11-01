@@ -1,0 +1,122 @@
+@import url('base/grid.css');
+@import url('base/button.css');
+@import url('base/input.css');
+@import url('base/treelist.css');
+@import url('base/data-list.css');
+@import url('base/radio-button.css');
+@import url('base/toast-messenger.css');
+@import url('base/loader.css');
+@import url('base/text-area.css');
+@import url('base/table.css');
+@import url('base/checkbox.css');
+@import url('base/paging.css');
+@import url('base/combobox.css');
+@import url('base/box-quantity.css');
+
+@font-face {
+    font-family: 'NotosansBold';
+    src: url('../assets/font/notosans-bold.3ede5aff.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'NotosansItalic';
+    src: url('../assets/font/notosans-italic.1c1aaac9.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'NotosansRegular';
+    src: url('../assets/font/notosans-regular.2cb88a13.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'NotosansSemibold';
+    src: url('../assets/font/notosans-semibold.df3e6dc4.woff2') format('woff2');
+}
+
+:root {
+    --pink-color: #FF99FF;
+    --pink2-color: #9B6BB3;
+    --pink3-color: #BB99FF;
+    --pink4-color: #836BB3;
+    --pink-hover-color: #FF99FF99;
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+    background-color: #F1F1F1;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #B8BCC3;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #888888;
+}
+
+::-webkit-scrollbar:horizontal {
+    height: 15px;
+    background-color: #F1F1F1;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+    background: #B8BCC3;
+}
+
+::-webkit-scrollbar-thumb:horizontal:hover {
+    background: #888888;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw - 15px;
+    height: 100vh;
+    font-family: NotosansRegular;
+    color: #212121;
+    font-size: 14px;
+}
+
+* {
+    box-sizing: border-box !important;
+}
+
+.d-none{
+    display: none !important;
+}
+
+button {
+    border: 0;
+    outline: 0;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.to-top {
+    position: fixed;
+    bottom: 90px;
+    right: 10px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    background-color: var(--pink-color);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F1F1F1;
+}
+
+input.validate-field {
+    border: 1px solid red !important;
+}
+
+textarea.validate-field {
+    border: 1px solid red !important;
+}
+
+.combobox.validate-field input {
+    border: 1px solid red !important;
+}

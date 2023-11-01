@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh toán</title>
+    <link rel="icon" type="image/png" href="../favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+        integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/layout/home.css">
+    <script src="../lib/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <!-- start nav-bar -->
+    <input type="checkbox" name="" id="open-menu-status">
+    <input type="checkbox" name="" id="open-category-status">
+    <div class="nav-bar">
+        <div class="nav-bar-left">
+            <div class="logo"></div>
+            <a class="menu-item" href="../index.html#itemCategory">
+                <i class="fa fa-clipboard-list"></i>
+                <p>Danh mục sản phẩm</p>
+            </a>
+            <input type="text" class="input search-box" placeholder="Tìm kiếm sản phẩm">
+            <button class="button button-secondary button-icon">
+                <i class="fa fa-magnifying-glass" style="color: var(--pink-color);"></i>
+            </button>
+        </div>
+        <div class="nav-bar-center">
+            <a class="menu-item cart" href="./cart.html" count="0">
+                <i class="fa fa-cart-shopping" style="font-size: 24px;"></i>
+                <p>Giỏ hàng</p>
+                <div class="cart-count">0</div>
+            </a>
+            <a class="menu-item" href="./order-lookup.html">
+                <i class="fa fa-clock-rotate-left"></i>
+                <p>Tra cứu đơn hàng</p>
+            </a>
+        </div>
+        <div class="nav-bar-right">
+            <div class="menu-item notification">
+                <i class="fa fa-bell"></i>
+                <p>Thông báo</p>
+            </div>
+            <a class="menu-item" href="#lienhe">
+                <i class="fa fa-question"></i>
+                <p>Hỗ trợ</p>
+            </a>
+            <a class="menu-item" href="./login.html">
+                <p>Đăng nhập</p>
+            </a>
+            <a class="menu-item" href="./register.html">
+                <p>Đăng kí</p>
+            </a>
+        </div>
+    </div>
+    <div class="nav-mobile">
+        <div class="nav-top">
+            <span>
+                <div class="logo"></div>
+                <h3>Dâu Store</h3>
+            </span>
+            <label class="menu-item" for="open-category-status">
+                <i class="fa fa-clipboard-list"></i>
+                <p>Danh mục sản phẩm</p>
+            </label>
+            <label class="open-menu" for="open-menu-status">
+                <i class="fa fa-bars" style="color: #fff;"></i>
+            </label>
+        </div>
+        <div class="nav-bottom">
+            <span>
+                <input type="text" class="input search-box" placeholder="Tìm kiếm sản phẩm">
+                <button class="button button-secondary button-icon">
+                    <i class="fa fa-magnifying-glass" style="color: var(--pink-color);"></i>
+                </button>
+            </span>
+            <span>
+                <a class="menu-item cart" href="./cart.html" count="0">
+                    <i class="fa fa-cart-shopping" style="font-size: 24px;"></i>
+                    <p>Giỏ hàng</p>
+                    <div class="cart-count">0</div>
+                </a>
+                <div class="menu-item notification">
+                    <i class="fa fa-bell"></i>
+                    <p>Thông báo</p>
+                </div>
+            </span>
+        </div>
+    </div>
+    <div class="menu-bar">
+        <label class="close-menu" for="open-menu-status">
+            <i class="fa fa-times"></i>
+        </label>
+        <a class="menu-item" href="./order-lookup.html">
+            <i class="fa fa-clock-rotate-left"></i>
+            <p>Tra cứu đơn hàng</p>
+        </a>
+        <a class="menu-item" href="#lienhe">
+            <i class="fa fa-question"></i>
+            <p>Hỗ trợ</p>
+        </a>
+        <a class="menu-item" href="./login.html">
+            <p>Đăng nhập</p>
+        </a>
+        <a class="menu-item" href="./register.html">
+            <p>Đăng kí</p>
+        </a>
+    </div>
+    <label class="nav-overlay" for="open-menu-status"></label>
+    <div class="category-bar">
+        <label class="close-category" for="open-category-status">
+            <i class="fa fa-times"></i>
+        </label>
+        <div class="tree-bar-wrapper">
+            <nav class="tree-nav">
+                <span class="picked-category"><i class="fa-solid fa-crosshairs"></i>
+                    <h4>Tất cả quần áo</h4>
+                </span>
+                <details class="tree-nav__item is-expandable">
+                    <summary class="tree-nav__item-title">Quần áo</summary>
+                    <div class="tree-nav__item">
+                        <a class="tree-nav__item-title active">Tất cả</a>
+                        <a class="tree-nav__item-title">Mũ</a>
+                        <a class="tree-nav__item-title">Giày</a>
+                        <a class="tree-nav__item-title">Áo</a>
+                    </div>
+                    <details class="tree-nav__item is-expandable">
+                        <summary class="tree-nav__item-title">Quần</summary>
+                        <div class="tree-nav__item">
+                            <a class="tree-nav__item-title">Tất cả quần</a>
+                            <a class="tree-nav__item-title">Quần jean</a>
+                            <a class="tree-nav__item-title">Quẩn đùi</a>
+                        </div>
+                    </details>
+                </details>
+                <details class="tree-nav__item is-expandable">
+                    <summary class="tree-nav__item-title">Phụ kiện</summary>
+                    <div class="tree-nav__item">
+                        <a class="tree-nav__item-title">Bông tai</a>
+                        <a class="tree-nav__item-title">Lắc</a>
+                        <a class="tree-nav__item-title">Dây chuyền</a>
+                    </div>
+                </details>
+                <details class="tree-nav__item is-expandable">
+                    <summary class="tree-nav__item-title">Đồ ăn</summary>
+                    <div class="tree-nav__item">
+                        <a class="tree-nav__item-title">Nhung hươu</a>
+                        <a class="tree-nav__item-title">Đông trùng</a>
+                        <a class="tree-nav__item-title">Yến sào</a>
+                    </div>
+                </details>
+            </nav>
+        </div>
+    </div>
+    <label class="category-overlay" for="open-category-status"></label>
+    <!-- end nav-bar -->
+    <div class="content">
+        <div class="grid wide payment-content" step="1">
+            <div class="row pay-progress">
+                <div class="col l-3 m-6 c-12 payment-b1" to="1"><i class="fa-solid fa-1"></i>. ĐỊA CHỈ THANH TOÁN</div>
+                <div class="col l-3 m-6 c-12 payment-b2" to="2"><i class="fa-solid fa-2"></i>. PHƯƠNG THỨC THANH TOÁN
+                </div>
+                <div class="col l-3 m-6 c-12 payment-b3" to="3"><i class="fa-solid fa-3"></i>. THÔNG TIN ĐƠN HÀNG</div>
+                <div class="col l-3 m-6 c-12 payment-b4" to="4"><i class="fa-solid fa-4"></i>. XÁC NHẬN</div>
+            </div>
+            <div class="row content-step buyer-info">
+                <div class="col l-4 m-6 c-12">
+                    <div class="input-item">
+                        <div class="input-title">Họ và tên:</div>
+                        <input type="text" class="input" id="valueBuyerName">
+                    </div>
+                </div>
+                <div class="col l-4 m-6 c-12">
+                    <div class="input-item">
+                        <div class="input-title">Số điện thoại:</div>
+                        <input type="text" class="input" id="valuePhone">
+                    </div>
+                </div>
+                <div class="col l-4 m-6 c-12">
+                    <div class="input-item">
+                        <div class="input-title">Email:</div>
+                        <input type="text" class="input" id="valueEmail">
+                    </div>
+                </div>
+                <div class="col l-4 m-6 c-12">
+                    <div class="input-item">
+                        <div class="input-title">Tỉnh/Thành phố:</div>
+                        <div id="valueProvince" type="Province" class="combobox">
+                            <input type="text" class="input" id="valueProvinceName">
+                            <i class="fas fa-angle-down"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col l-4 m-6 c-12">
+                    <div class="input-item">
+                        <div class="input-title">Quận/Huyện:</div>
+                        <div id="valueDistrict" type="District" class="combobox">
+                            <input type="text" class="input" id="valueDistrictName">
+                            <i class="fas fa-angle-down"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col l-4 m-6 c-12">
+                    <div class="input-item">
+                        <div class="input-title">Xã/Phường:</div>
+                        <div id="valueWard" type="Ward" class="combobox">
+                            <input type="text" class="input" id="valueWardName">
+                            <i class="fas fa-angle-down"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col l-12 m-12 c-12">
+                    <div class="input-item">
+                        <div class="input-title">Địa chỉ(số nhà, tên đường):</div>
+                        <div class="textarea-wrapper">
+                            <textarea id="valueAddress"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col l-12 m-12 c-12">
+                    <div class="input-item">
+                        <div class="input-title">Ghi chú cho đơn hàng:</div>
+                        <div class="textarea-wrapper">
+                            <textarea id="valueNote"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col l-12 m-12 c-12 navigator-payment">
+                    <div class="move-button" to="2" id="btnSubmitInfoForm">
+                        <i class="fa-solid fa-angle-right"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="row content-step payment-methods">
+                <div class="col l-12 m-12 c-12 payment-methods-title">
+                    Vui lòng chọn 1 trong các phương thức thanh toán
+                </div>
+                <div class="col l-3 m-6 c-12">
+                    <label for="paymethod1" class="paymethod-item"><img
+                            src="https://quehuongshop.vn/assets/images/others/icon_cod.png" alt=""> Thanh toán tiền mặt
+                        <input type="radio" name="paymentMethod" id="paymethod1" checked></label>
+                </div>
+                <div class="col l-3 m-6 c-12">
+                    <label for="paymethod2" class="paymethod-item"><img
+                            src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png?20201011055544" alt="">
+                        Thanh toán momo<input type="radio" name="paymentMethod" id="paymethod2" disabled></label>
+                </div>
+                <div class="col l-3 m-6 c-12">
+                    <label for="paymethod3" class="paymethod-item"><img
+                            src="https://vnpay.vn/_nuxt/img/logo-primary.55e9c8c.svg" alt=""> Thanh toán VNPay<input
+                            type="radio" name="paymentMethod" id="paymethod3" disabled></label>
+                </div>
+                <div class="col l-3 m-6 c-12">
+                    <label for="paymethod4" class="paymethod-item"><img
+                            src="https://image.shutterstock.com/image-photo/image-260nw-399995245.jpg" alt=""> Thanh
+                        toán chuyển khoản<input type="radio" name="paymentMethod" id="paymethod4" disabled></label>
+                </div>
+                <div class="col l-12 m-12 c-12 navigator-payment">
+                    <div class="move-button" to="1">
+                        <i class="fa-solid fa-angle-left"></i>
+                    </div>
+                    <div class="move-button" to="3">
+                        <i class="fa-solid fa-angle-right"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="row content-step order-info">
+                <div class="col l-12 m-12 c-12 payment-methods-title">
+                    Thông tin đơn hàng
+                </div>
+                <div class="col l-4 m-6 c-12">
+                    <div class="input-item">
+                        <div class="input-title">Họ và tên:</div>
+                        <input type="text" class="input" disabled id="infoBuyerName">
+                    </div>
+                </div>
+                <div class="col l-4 m-6 c-12">
+                    <div class="input-item">
+                        <div class="input-title">Số điện thoại:</div>
+                        <input type="text" class="input" disabled id="infoPhone">
+                    </div>
+                </div>
+                <div class="col l-4 m-6 c-12">
+                    <div class="input-item">
+                        <div class="input-title">Email:</div>
+                        <input type="text" class="input" disabled id="infoEmail">
+                    </div>
+                </div>
+                <div class="col l-4 m-6 c-12">
+                    <div class="input-item">
+                        <div class="input-title">Tỉnh/Thành phố:</div>
+                        <input type="text" class="input" disabled id="infoProvince">
+                    </div>
+                </div>
+                <div class="col l-4 m-6 c-12">
+                    <div class="input-item">
+                        <div class="input-title">Quận/Huyện:</div>
+                        <input type="text" class="input" disabled id="infoDistrict">
+                    </div>
+                </div>
+                <div class="col l-4 m-6 c-12">
+                    <div class="input-item">
+                        <div class="input-title">Xã/Phường:</div>
+                        <input type="text" class="input" disabled id="infoWard">
+                    </div>
+                </div>
+                <div class="col l-12 m-12 c-12">
+                    <div class="input-item">
+                        <div class="input-title">Địa chỉ(số nhà, tên đường):</div>
+                        <input type="text" class="input" disabled id="infoAddress">
+                    </div>
+                </div>
+                <div class="col l-12 m-12 c-12">
+                    <div class="input-item">
+                        <div class="input-title">Ghi chú cho đơn hàng:</div>
+                        <div class="textarea-wrapper">
+                            <textarea disabled id="infoNote"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col l-12 m-12 c-12">
+                    <div class="input-title">Danh sách sản phẩm:</div>
+                </div>
+                <div class="col l-12 m-12 c-12 list-item-pay">
+
+
+                </div>
+                <div class="col l-3 m-4 c-10">
+                    <div class="input-item">
+                        <div class="input-title">Mã giảm giá:</div>
+                        <input type="text" class="input" id="infoVoucherCode">
+                    </div>
+                </div>
+                <div class="col l-1 m-2 c-2">
+                    <div class="input-item">
+                        <div class="input-title">.</div>
+                        <button class="button button-primary" id="btnVoucher">Xác nhận</button>
+                    </div>
+                </div>
+                <div class="col l-8 m-6 c-12">
+                    <div class="input-item">
+                        <div class="input-title">Chi tiết voucher:</div>
+                        <input type="text" class="input" disabled id="infoVoucherDetail">
+                    </div>
+                </div>
+                <div class="col l-12 m-12 c-12">
+                    <div class="input-title">Tổng tiền đơn hàng (chưa bào gồm tiền ship/vận chuyển):&nbsp;<strong
+                            id="totalMoneyPay" style="font-size: 22px;">1.002.000 đ</strong></div>
+                </div>
+                <div class="col l-12 m-12 c-12 navigator-payment">
+                    <div class="move-button" to="2">
+                        <i class="fa-solid fa-angle-left"></i>
+                    </div>
+                    <button class="button button-primary" style="height: 45px;" id="btnPayOrder"> <b>Xác nhận đặt
+                            hàng</b> </button>
+                </div>
+            </div>
+            <div class="row content-step confirm-order">
+                <div class="col l-12 m-12 c-12 payment-methods-title">
+                    Đặt hàng thành công
+                </div>
+                <div class="col l-8 m-8 c-8 l-o-2 m-o-2 c-o-2">
+                    <p style="text-align: center; font-size: 16px; line-height: 30px;">
+                        - Mã đơn hàng của bạn là <strong style="color: var(--pink-color); font-size: 18px;"
+                            id="valueOrderCode">12312412312431</strong> .
+                        <br> - Mã QR của đơn hàng
+                        <br>
+                        <img id="orderQrCode" style="border: 2px solid blue;" src="" alt="">
+                        <br> - Hãy lưa lại và dùng mã này để tra cứu, chỉnh sửa đơn hàng của bạn.
+                        <br> - Đơn hàng của bạn sẽ được nhân viên xác nhận trong vài giờ và liên hệ lại để xác nhận đơn
+                        hàng.
+                        <br> - Cảm ơn bạn đã đến với Dâu Store!
+                    </p>
+                </div>
+                <div class="col l-12 m-12 c-12 navigator-payment">
+                    <div class="move-button" to="3">
+                        <i class="fa-solid fa-angle-left"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="grid wide">
+            <div class="row">
+                <div class="col l-3 m-6 c-8 c-o-2">
+                    <div class="footer-block">
+                        <h4 class="footer-title"><b>HỖ TRỢ KHÁCH HÀNG</b></h4>
+                        <a href="" class="footer-item">Trung tâm trợ giúp</a>
+                        <a href="" class="footer-item">An toàn mua bán</a>
+                        <a href="" class="footer-item">Quy định cần biết</a>
+                        <a href="" class="footer-item">Liên hệ hỗ trợ</a>
+                    </div>
+                </div>
+                <div class="col l-3 m-6 c-8 c-o-2">
+                    <div class="footer-block">
+                        <h4 class="footer-title"><b>VỀ DÂU STORE</b></h4>
+                        <a href="" class="footer-item">Giới thiệu</a>
+                        <a href="" class="footer-item">Tuyển dụng</a>
+                        <a href="" class="footer-item">Truyền thông</a>
+                        <a href="" class="footer-item">Blog</a>
+                    </div>
+                </div>
+                <div class="col l-3 m-6 c-8 c-o-2">
+                    <div class="footer-block" id="lienhe">
+                        <h4 class="footer-title"><b>LIÊN HỆ</b> <span
+                                style="font-weight: lighter; font-size: 10px;">(Click vào để liên hệ ngay)</span></h4>
+                        <a href="http://maps.google.com/?q=37 P. Bằng Liệt, Hoàng Liệt, Hoàng Mai, Hà Nội, Vietnam"
+                            target="_blank" class="footer-item"><i class="fa-solid fa-location-dot"></i>37 Bằng
+                            Liệt,Hoàng Mai,Hà
+                            Nội</a>
+                        <a href="mailto:baotram010298@gmail.com" class="footer-item"><i
+                                class="fa-solid fa-envelope"></i>baotram010298@gmail.com</a>
+                        <a href="tel:0974300198" class="footer-item"><i class="fa-solid fa-phone"></i>0974300198</a>
+                        <a href="" class="footer-item"><i class="fa-solid fa-clock"></i>Tất cả ngày giờ trong tuần</a>
+                    </div>
+                </div>
+                <div class="col l-3 m-6 c-8 c-o-2">
+                    <div class="footer-block">
+                        <h4 class="footer-title"><b>KẾT NỐI VỚI CHÚNG TÔI</b></h4>
+                        <div class="row">
+                            <a href="https://www.facebook.com/D%C3%A2u-store-104210735561967" class="footer-item">
+                                <img src="https://static.chotot.com/storage/default/facebook.svg" alt="">
+                            </a>
+                            <a href="" class="footer-item">
+                                <img src="https://static.chotot.com/storage/default/youtube.svg" alt="">
+                            </a>
+                        </div>
+                        <div class="row">
+                            <a href="" class="footer-item"><img src="../assets/image/tiktok-round-color.png" alt=""
+                                    style="transform: scale(1.14);"></a>
+                            <a href="" class="footer-item"><img src="../assets/image/instagram.png" alt=""
+                                    style="transform: scale(1.14);"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="data-list">
+    </div>
+
+    <div class="toast-messenger" type="success" isShow="hide">
+        <i class="mes-icon fas fa-exclamation-circle"></i>
+        <i class="mes-icon fas fa-check-circle"></i>
+        <div class="mes-text">Thêm mới thành công</div>
+    </div>
+
+    <div class="loader" isShow="hide">
+        <div class="loader-modal"></div>
+        <div class="loader-icon"></div>
+    </div>
+
+    <div class="to-top">
+        <i class="fa-solid fa-angle-up"></i>
+    </div>
+
+    <!-- start facebook chat -->
+    <div id="fb-root"></div>
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+    <script>
+        var chatbox = document.getElementById('fb-customer-chat');
+        chatbox.setAttribute("page_id", "104210735561967");
+        chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                xfbml: true,
+                version: 'v13.0'
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <!-- end facebook chat -->
+
+    <script src="../js/common/common.js"></script>
+    <script src="../js/common/validator.js"></script>
+    <script src="../js/api/baseApi.js"></script>
+    <script src="../js/page/base.js"></script>
+    <script src="../js/page/pay.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lí tài khoản</title>
+    <link rel="icon" type="image/png" href="../favicon.ico">
+    <link rel="stylesheet" href="../lib/fontawesome/css/all.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/layout/main-layout.css">
+    <script src="../lib/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div class="menu">
+        <div class="menu-header">
+            <img src="https://daustore.store/assets/image/logo.jpg" alt="" style="width: 30px;">
+            <h5>DÂU STORE</h5>
+        </div>
+        <div class="menu-body">
+            <div id="cilivianHome" class="menu-item" toHref="home" title="Trang chủ">
+                <i class="fas fa-home"></i>
+                <p>Trang chủ</p>
+            </div>
+            <div id="cilivianFeed" class="menu-item" toHref="item" title="Quản lí các mặt hàng">
+                <i class="fa-solid fa-truck-ramp-box"></i>
+                <p>Quản lí hàng</p>
+            </div>
+            <div id="cilivianDeclare" class="menu-item" toHref="order" title="Quản lí các đơn hàng">
+                <i class="fa-solid fa-truck-fast"></i>
+                <p>Quản lí đơn</p>
+            </div>
+            <div id="cilivianSituation" class="menu-item" toHref="voucher"
+                title="Quản lí các mã khuyến mãi">
+                <i class="fa-solid fa-gift"></i>
+                <p>Mã khuyến mãi</p>
+            </div>
+            <div id="cilivianSituation" class="menu-item menu-item-active" toHref="account"
+                title="Quản lí tài khoản">
+                <i class="fa-solid fa-user"></i>
+                <p>Quản lí tài khoản</p>
+            </div>
+        </div>
+        <div class="toggle-menu">
+            <i class="fas fa-angle-left"></i>
+        </div>
+    </div>
+    <div class="content">
+        <div class="content-header">
+            <div class="content-header-left">
+                <i class="fas fa-user-cog"></i>
+                <h2>|</h2>
+                <h4 id="livetime"></h4>
+            </div>
+            <div class="content-header-right">
+                <div class="notification">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <button class="user">
+                    <div class="avatar"></div>
+                    <p class="display-user">Nguyễn Văn Hiếu</p>
+                    <i class="fas fa-angle-down"></i>
+                </button>
+                <div class="list-option">
+                    <div class="item-option">Chỉnh sửa thông tin</div>
+                    <div class="item-option">Hotline</div>
+                    <div class="item-option">About me</div>
+                    <div class="item-option btn-logout">Đăng xuất</div>
+                </div>
+            </div>
+        </div>
+        <div class="content-body">
+            <div class="function-bar">
+                <span>
+                    
+                </span>
+                <span>
+                    <button class="button button-primary" id="btnAddAccount">
+                        <i class="fas fa-plus"></i>
+                        Thêm tài khoản mới
+                    </button>
+                    <button class="button button-secondary button-icon" id="btnRefresh">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                </span>
+            </div>
+            <div class="content-content">
+                <div class="container" style="width:70%">
+                    <div class="grid">
+                        <table>
+
+                        </table>
+                    </div>
+                    <div class="paging-bar">
+                        <div class="paging-bar-left">
+                            <p id="pagingInfo">11</p>
+                        </div>
+                        <div class="paging-bar-right">
+                            <div class="dropdown last-dropdown" style="border:none;">
+                                <button class="dropdown-main">
+                                    <p>10</p>
+                                    <div class="icon"><i class="fas fa-chevron-down"></i></div>
+                                </button>
+                                <div class="dropdown-data">
+                                    <div class="dropdown-item" valuename="50">
+                                        <i class="fas fa-check"></i>
+                                        <p>50</p>
+                                    </div>
+                                    <div class="dropdown-item" valuename="20">
+                                        <i class="fas fa-check"></i>
+                                        <p>20</p>
+                                    </div>
+                                    <div class="dropdown-item item-selected" valuename="10">
+                                        <i class="fas fa-check"></i>
+                                        <p>10</p>
+                                    </div>
+                                    <div class="dropdown-item" valuename="5">
+                                        <i class="fas fa-check"></i>
+                                        <p>5</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>bản ghi/trang</p>
+
+                            <button class="pre-page">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="next-page">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-data">
+        <div class="form" style="height: 305px;">
+            <div class="form-header">
+                <div class="form-title">
+                    <h2>Tài khoản shop quản lí</h2>
+                </div>
+                <div class="close-from" id="closeFormData"> <i class="fas fa-times"></i> </div>
+            </div>
+            <div class="form-body">
+                <div class="row">
+                    <div class="form-item divide-2-row">
+                        <div class="item-title">Tên tài khoản:</div>
+                        <input type="text" class="input" id="valueAccountName">
+                    </div>
+                    <div class="form-item divide-2-row">
+                        <div class="item-title">Số điện thoại:</div>
+                        <input type="text" class="input" id="valuePhone">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-item divide-2-row">
+                        <div class="item-title">Email:</div>
+                        <input type="text" class="input" id="valueEmail">
+                    </div>
+                    <div class="form-item divide-2-row">
+                        <div class="item-title">Mật khẩu:</div>
+                        <input type="text" class="input" id="valuePassword">
+                    </div>
+                </div>
+            </div>
+            <div class="form-footer">
+                <button class="button button-primary" id="btnAddNewAccount">Thêm mới tài khoản</button>
+            </div>
+        </div>
+    </div>
+
+    <span id="thisIsAccountPage" style="display: none;"></span>
+
+    <div class="data-list">
+    </div>
+
+    <div class="toast-messenger" type="success" isShow="hide">
+        <i class="mes-icon fas fa-exclamation-circle"></i>
+        <i class="mes-icon fas fa-check-circle"></i>
+        <div class="mes-text">Thêm mới thành công</div>
+    </div>
+
+    <div class="loader" isShow="hide">
+        <div class="loader-modal"></div>
+        <div class="loader-icon"></div>
+    </div>
+
+    <script src="../js/model/tableColums.js"></script>
+    <script src="../js/common/common.js"></script>
+    <script src="../js/common/validator.js"></script>
+    <script src="../js/api/baseApi.js"></script>
+    <script src="../js/page/base.js"></script>
+    <script src="../js/page/accountPage.js"></script>
+</body>
+
+</html>

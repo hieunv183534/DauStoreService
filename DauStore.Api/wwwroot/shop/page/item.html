@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lí hàng</title>
+    <link rel="icon" type="image/png" href="../favicon.ico">
+    <link rel="stylesheet" href="../lib/fontawesome/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+        integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/layout/main-layout.css">
+    <script src="../lib/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div class="menu">
+        <div class="menu-header">
+            <img src="https://daustore.store/assets/image/logo.jpg" alt="" style="width: 30px;">
+            <h5>DÂU STORE</h5>
+        </div>
+        <div class="menu-body">
+            <div id="cilivianHome" class="menu-item" toHref="home" title="Trang chủ">
+                <i class="fas fa-home"></i>
+                <p>Trang chủ</p>
+            </div>
+            <div id="cilivianFeed" class="menu-item menu-item-active" toHref="item" title="Quản lí các mặt hàng">
+                <i class="fa-solid fa-truck-ramp-box"></i>
+                <p>Quản lí hàng</p>
+            </div>
+            <div id="cilivianDeclare" class="menu-item" toHref="order" title="Quản lí các đơn hàng">
+                <i class="fa-solid fa-truck-fast"></i>
+                <p>Quản lí đơn</p>
+            </div>
+            <div id="cilivianSituation" class="menu-item" toHref="voucher" title="Quản lí các mã khuyến mãi">
+                <i class="fa-solid fa-gift"></i>
+                <p>Mã khuyến mãi</p>
+            </div>
+            <div id="cilivianSituation" class="menu-item" toHref="account"
+                title="Quản lí tài khoản">
+                <i class="fa-solid fa-user"></i>
+                <p>Quản lí tài khoản</p>
+            </div>
+        </div>
+        <div class="toggle-menu">
+            <i class="fas fa-angle-left"></i>
+        </div>
+    </div>
+    <div class="content">
+        <div class="content-header">
+            <div class="content-header-left">
+                <i class="fas fa-user-cog"></i>
+                <h2>|</h2>
+                <h4 id="livetime"></h4>
+            </div>
+            <div class="content-header-right">
+                <div class="notification">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <button class="user">
+                    <div class="avatar"></div>
+                    <p class="display-user">Nguyễn Văn Hiếu</p>
+                    <i class="fas fa-angle-down"></i>
+                </button>
+                <div class="list-option">
+                    <div class="item-option">Chỉnh sửa thông tin</div>
+                    <div class="item-option">Hotline</div>
+                    <div class="item-option">About me</div>
+                    <div class="item-option btn-logout">Đăng xuất</div>
+                </div>
+            </div>
+        </div>
+        <div class="content-body">
+            <div class="function-bar">
+                <span>
+                    <div class="category-bar">
+                        <div class="category-main">Tất cả sản phẩm</div>
+                        <div class="category-content">
+                            <nav class="tree-nav" id="category">
+
+                            </nav>
+                        </div>
+                    </div>
+                    <input type="text" class="input search-box" id="inputSearch" placeholder="Tìm theo tên, mã hàng">
+                </span>
+                <span>
+                    <button class="button button-secondary" id="btnCategory">
+                        Quản lí danh mục sản phẩm
+                    </button>
+                    <button class="button button-primary" id="btnAddItem">
+                        <i class="fas fa-plus"></i>
+                        Thêm mặt hàng mới
+                    </button>
+                    <button class="button button-secondary button-icon" id="btnRefresh">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                </span>
+            </div>
+            <div class="content-content">
+                <div class="container">
+                    <div class="grid">
+                        <table>
+
+                        </table>
+                    </div>
+                    <div class="paging-bar">
+                        <div class="paging-bar-left">
+                            <p id="pagingInfo">11</p>
+                        </div>
+                        <div class="paging-bar-right">
+                            <div class="dropdown last-dropdown" style="border:none;">
+                                <button class="dropdown-main">
+                                    <p>10</p>
+                                    <div class="icon"><i class="fas fa-chevron-down"></i></div>
+                                </button>
+                                <div class="dropdown-data">
+                                    <div class="dropdown-item" valuename="50">
+                                        <i class="fas fa-check"></i>
+                                        <p>50</p>
+                                    </div>
+                                    <div class="dropdown-item" valuename="20">
+                                        <i class="fas fa-check"></i>
+                                        <p>20</p>
+                                    </div>
+                                    <div class="dropdown-item item-selected" valuename="10">
+                                        <i class="fas fa-check"></i>
+                                        <p>10</p>
+                                    </div>
+                                    <div class="dropdown-item" valuename="5">
+                                        <i class="fas fa-check"></i>
+                                        <p>5</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>bản ghi/trang</p>
+
+                            <button class="pre-page">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="next-page">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-data">
+        <div class="form">
+            <div class="form-header">
+                <div class="form-title">
+                    <h2>Thông tin sản phẩm</h2>
+                </div>
+                <div class="close-from" id="closeFormData"> <i class="fas fa-times"></i> </div>
+            </div>
+            <div class="form-body">
+                <div class="row">
+                    <div class="form-item divide-2-3-row">
+                        <div class="item-title">Tên sản phẩm:</div>
+                        <input type="text" class="input" id="valueItemName">
+                    </div>
+                    <div class="form-item divide-3-row">
+                        <div class="item-title">Mã sản phẩm:</div>
+                        <input type="text" class="input" disabled id="valueItemCode">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-item divide-3-row">
+                        <div class="item-title">Giá gốc:</div>
+                        <input type="number" class="input" id="valueRealPrice">
+                    </div>
+                    <div class="form-item divide-3-row">
+                        <div class="item-title">Phần trăm khuyến mãi: </div>
+                        <input type="number" class="input" id="valueSaleRate">
+                    </div>
+                    <div class="form-item divide-3-row">
+                        <div class="item-title">Giá khuyến mãi:</div>
+                        <input type="number" class="input" id="valueSalePrice" disabled>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-item divide-2-3-row">
+                        <div class="item-title">Thẻ: </div>
+                        <div class="tag-choose" id="valueTag">
+                            <div class="tag-item" data="new">Hàng mới về</div>
+                            <div class="tag-item" data="hot">Hàng được mua nhiều</div>
+                            <div class="tag-item" data="sale">Khuyến mãi</div>
+                        </div>
+                    </div>
+                    <div class="form-item divide-3-row">
+                        <div class="item-title">Danh mục: </div>
+                        <div class="category-bar" id="valueCategoryCode">
+                            <div class="category-main">Vui lòng chọn danh mục</div>
+                            <div class="category-content">
+                                <nav class="tree-nav" id="categoryx">
+
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-item divide-1-row">
+                        <div class="item-title">Chi tiết thông tin sản phẩm:
+                            <span style="font-size: 10px; font-weight: normal;">(Vui lòng chọn danh mục trước)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="column list-description-feature">
+                </div>
+                <div class="row">
+                    <div class="form-item divide-1-row">
+                        <div class="item-title">Danh sách media:<span style="font-size: 10px; font-weight: normal;">(Mặc
+                                định media đầu danh sách là avatar)</span> </div>
+                        <div class="list-media" id="valueMedias">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-item divide-2-3-row">
+                        <div class="item-title">Thêm media mới:<span style="font-size: 10px; font-weight: normal;">(Mặc
+                                định các media mới thêm sẽ ở cuối)</span> </div>
+                        <input type="file" id="inputMedia">
+                    </div>
+                    <div class="form-item divide-3-row">
+                        <button class="button button-secondary" id="btnUploadMedia">Upload</button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-footer">
+                <button class="button button-secondary" id="updateInStock">Xuất nhập hàng</button>
+                <button class="button button-primary" id="btnUpdateUserInfo">Cập nhật thông tin</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-update-instock"  show="hide">
+        <div class="loader-modal"></div>
+        <div class="box-quantity-content">
+            <div class="box-quantity-header"><h2 style="margin: 0px;">Xuất nhập hàng</h2></div>
+            <div class="box-quantity-body">
+                <div class="update-stock-item">
+                    <p>Số lượng ban đầu</p>
+                    <input type="number" class="input" disabled id="inputOldQuantity">
+                </div>
+                <div class="update-stock-item">
+                    <p>Số lượng thay đổi</p>
+                    <input type="number" class="input" id="inputChangeOfQuantity">
+                </div>
+                <div style="margin-bottom: 10px;" class="update-stock-item">
+                    <p>Số lượng sau thay đổi</p>
+                    <input type="number" class="input" id="inputNewQuantity" min="0">
+                </div>
+            </div>
+            <div class="box-quantity-footer">
+                <button class="button button-secondary" id="closeFormUpdateInstock">Hủy</button>
+                <button class="button button-primary" id="btnUpdateInstock">Xác nhận</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-category">
+        <div class="form">
+            <div class="form-header">
+                <div class="form-title">
+                    <h2>Loại sản phẩm</h2>
+                </div>
+                <div class="close-from" id="closeCategory"> <i class="fas fa-times"></i> </div>
+            </div>
+            <div class="form-body">
+                <div class="row">
+                    <div class="form-item divide-1-row">
+                        <nav class="tree-nav" id="category_form">
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="form-footer">
+                <div class="row">
+                    <p>Thuộc danh mục:</p>
+                    <input type="text" class="input" id="valueCategoryParent" disabled value="">
+                </div>
+                <div class="row">
+                    <p>Tên danh mục:</p>
+                    <input type="text" class="input" id="valueCategoryName">
+                </div>
+                <div class="row">
+                    <p>Các thông tin đi kèm:</p>
+                </div>
+                <div class="row" style="flex-grow: 1; overflow-y: auto;">
+                    <div class="list-category-description">
+                        <div class="my-list">
+
+                        </div>
+                        <div class="category-description-item add-new-item">
+                            <div class="mybtn add-description"><i class="fas fa-plus"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="justify-content: center;">
+                    <button class="button button-primary" id="btnUpdateCategory">Thay đổi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <span id="thisIsItemPage" style="display: none;"></span>
+
+    <div class="data-list">
+    </div>
+
+    <div class="toast-messenger" type="success" isShow="hide">
+        <i class="mes-icon fas fa-exclamation-circle"></i>
+        <i class="mes-icon fas fa-check-circle"></i>
+        <div class="mes-text">Thêm mới thành công</div>
+    </div>
+
+    <div class="loader" isShow="hide">
+        <div class="loader-modal"></div>
+        <div class="loader-icon"></div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-storage.js"></script>
+    <script src="../js/model/tableColums.js"></script>
+    <script src="../js/model/model.js"></script>
+    <script src="../js/common/common.js"></script>
+    <script src="../js/common/validator.js"></script>
+    <script src="../js/api/baseApi.js"></script>
+    <script src="../js/page/base.js"></script>
+    <script src="../js/page/itemPage.js"></script>
+</body>
+
+</html>

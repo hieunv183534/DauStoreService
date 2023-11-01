@@ -119,7 +119,7 @@ namespace DauStore.Api
             app.UseSwaggerUI(options =>
             {
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
-                options.RoutePrefix = string.Empty;
+                options.RoutePrefix = "swagger";
             });
 
             if (env.IsDevelopment())
@@ -130,6 +130,8 @@ namespace DauStore.Api
             app.UseHttpsRedirection();
 
             app.UseStaticFiles();
+
+            app.UseDefaultFiles();
 
             app.UseRouting();
 

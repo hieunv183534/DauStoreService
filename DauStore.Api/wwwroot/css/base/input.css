@@ -1,0 +1,30 @@
+.input {
+    width: 240px;
+    height: 36px;
+    padding: 6px 8px;
+    border-radius: 4px;
+    outline: none;
+    border: solid 1px #e0e0e0;
+    box-sizing: border-box;
+    font-size: 13px;
+}
+
+.input::placeholder{
+    color: #bbb;
+}
+
+.input:focus {
+    border-color: var(--pink-color);
+}
+
+.input:hover {
+    border-color: var(--pink-color);
+}
+
+.search-box {
+    background-repeat: no-repeat;
+    background-position: 16px center;
+    background-size: 16px;
+    padding-left: 12px;
+    margin-right: 2px !important;
+}

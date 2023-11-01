@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Hi\\Desktop\\DauStore.Api\\DauStore.Api\\DauStore.Api.csproj": {}
+    "C:\\Users\\efoot\\OneDrive\\Desktop\\DauStoreService\\DauStore.Api\\DauStore.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Hi\\Desktop\\DauStore.Api\\DauStore.Api\\DauStore.Api.csproj": {
+    "C:\\Users\\efoot\\OneDrive\\Desktop\\DauStoreService\\DauStore.Api\\DauStore.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hi\\Desktop\\DauStore.Api\\DauStore.Api\\DauStore.Api.csproj",
+        "projectUniqueName": "C:\\Users\\efoot\\OneDrive\\Desktop\\DauStoreService\\DauStore.Api\\DauStore.Api.csproj",
         "projectName": "DauStore.Api",
-        "projectPath": "C:\\Users\\Hi\\Desktop\\DauStore.Api\\DauStore.Api\\DauStore.Api.csproj",
-        "packagesPath": "C:\\Users\\Hi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hi\\Desktop\\DauStore.Api\\DauStore.Api\\obj\\",
+        "projectPath": "C:\\Users\\efoot\\OneDrive\\Desktop\\DauStoreService\\DauStore.Api\\DauStore.Api.csproj",
+        "packagesPath": "C:\\Users\\efoot\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\efoot\\OneDrive\\Desktop\\DauStoreService\\DauStore.Api\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Hi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\efoot\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,17 +22,19 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://10.0.10.80:3300/nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Hi\\Desktop\\DauStore.Api\\DauStore.Core\\DauStore.Core.csproj": {
-                "projectPath": "C:\\Users\\Hi\\Desktop\\DauStore.Api\\DauStore.Core\\DauStore.Core.csproj"
+              "C:\\Users\\efoot\\OneDrive\\Desktop\\DauStoreService\\DauStore.Core\\DauStore.Core.csproj": {
+                "projectPath": "C:\\Users\\efoot\\OneDrive\\Desktop\\DauStoreService\\DauStore.Core\\DauStore.Core.csproj"
               },
-              "C:\\Users\\Hi\\Desktop\\DauStore.Api\\DauStore.Infrastructure\\DauStore.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\Hi\\Desktop\\DauStore.Api\\DauStore.Infrastructure\\DauStore.Infrastructure.csproj"
+              "C:\\Users\\efoot\\OneDrive\\Desktop\\DauStoreService\\DauStore.Infrastructure\\DauStore.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\efoot\\OneDrive\\Desktop\\DauStoreService\\DauStore.Infrastructure\\DauStore.Infrastructure.csproj"
               }
             }
           }
@@ -82,16 +80,11 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[3.1.21, 3.1.21]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -100,25 +93,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Hi\\Desktop\\DauStore.Api\\DauStore.Core\\DauStore.Core.csproj": {
+    "C:\\Users\\efoot\\OneDrive\\Desktop\\DauStoreService\\DauStore.Core\\DauStore.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hi\\Desktop\\DauStore.Api\\DauStore.Core\\DauStore.Core.csproj",
+        "projectUniqueName": "C:\\Users\\efoot\\OneDrive\\Desktop\\DauStoreService\\DauStore.Core\\DauStore.Core.csproj",
         "projectName": "DauStore.Core",
-        "projectPath": "C:\\Users\\Hi\\Desktop\\DauStore.Api\\DauStore.Core\\DauStore.Core.csproj",
-        "packagesPath": "C:\\Users\\Hi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hi\\Desktop\\DauStore.Api\\DauStore.Core\\obj\\",
+        "projectPath": "C:\\Users\\efoot\\OneDrive\\Desktop\\DauStoreService\\DauStore.Core\\DauStore.Core.csproj",
+        "packagesPath": "C:\\Users\\efoot\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\efoot\\OneDrive\\Desktop\\DauStoreService\\DauStore.Core\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Hi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\efoot\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -126,6 +115,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://10.0.10.80:3300/nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -167,34 +158,45 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.10, 3.1.10]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Hi\\Desktop\\DauStore.Api\\DauStore.Infrastructure\\DauStore.Infrastructure.csproj": {
+    "C:\\Users\\efoot\\OneDrive\\Desktop\\DauStoreService\\DauStore.Infrastructure\\DauStore.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hi\\Desktop\\DauStore.Api\\DauStore.Infrastructure\\DauStore.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\efoot\\OneDrive\\Desktop\\DauStoreService\\DauStore.Infrastructure\\DauStore.Infrastructure.csproj",
         "projectName": "DauStore.Infrastructure",
-        "projectPath": "C:\\Users\\Hi\\Desktop\\DauStore.Api\\DauStore.Infrastructure\\DauStore.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\Hi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hi\\Desktop\\DauStore.Api\\DauStore.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\efoot\\OneDrive\\Desktop\\DauStoreService\\DauStore.Infrastructure\\DauStore.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\efoot\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\efoot\\OneDrive\\Desktop\\DauStoreService\\DauStore.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Hi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\efoot\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -202,14 +204,16 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://10.0.10.80:3300/nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Hi\\Desktop\\DauStore.Api\\DauStore.Core\\DauStore.Core.csproj": {
-                "projectPath": "C:\\Users\\Hi\\Desktop\\DauStore.Api\\DauStore.Core\\DauStore.Core.csproj"
+              "C:\\Users\\efoot\\OneDrive\\Desktop\\DauStoreService\\DauStore.Core\\DauStore.Core.csproj": {
+                "projectPath": "C:\\Users\\efoot\\OneDrive\\Desktop\\DauStoreService\\DauStore.Core\\DauStore.Core.csproj"
               }
             }
           }
@@ -239,16 +243,31 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.10, 3.1.10]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

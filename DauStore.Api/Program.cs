@@ -20,10 +20,7 @@ namespace DauStore.Api
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    var port = Environment.GetEnvironmentVariable("PORT");
-
-                    webBuilder.UseStartup<Startup>()
-                    .UseUrls("http://*:" + port);
+                    webBuilder.UseStartup<Startup>();
                 });
     }
 }
