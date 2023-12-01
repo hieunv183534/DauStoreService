@@ -60,7 +60,7 @@ namespace DauStore.Infrastructure.Repositories
         {
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add($"@{propName}", propValue.ToString());
-            var sql = $"delete from {_tableName} where {propName} = @{propName} ";
+            var sql = $"delete from {_tableName.ToLower()} where {propName} = @{propName} ";
             using (var dbConnection = DatabaseConnection.DbConnection)
             {
                 var rowAffect = dbConnection.Execute(sql, param: parameters);
@@ -94,7 +94,7 @@ namespace DauStore.Infrastructure.Repositories
         {
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add($"@{propName}", propValue.ToString());
-            var sql = $"select * from `{_tableName}` where {propName} = @{propName} ";
+            var sql = $"select * from `{_tableName.ToLower()}` where {propName} = @{propName} ";
             using (var dbConnection = DatabaseConnection.DbConnection)
             {
                 var entity = dbConnection.QueryFirstOrDefault<TEntity>(sql, param: parameters);
@@ -141,6 +141,18 @@ namespace DauStore.Infrastructure.Repositories
                 var rowAffect = dbConnection.Execute(procName, param: parameters, commandType: CommandType.StoredProcedure);
                 return rowAffect;
             }
+        }
+
+        public string ConvertPascalToCamel(string pascalCase)
+        {
+            if (string.IsNullOrEmpty(pascalCase) || !char.IsUpper(pascalCase[0]))
+            {
+                // Nếu chuỗi trống hoặc không bắt đầu bằng một ký tự in hoa, trả về ngay lập tức
+                return pascalCase;
+            }
+
+            // Chuyển ký tự đầu tiên sang chữ thường và kết hợp với phần còn lại của chuỗi
+            return char.ToLower(pascalCase[0]) + pascalCase.Substring(1);
         }
     }
 }

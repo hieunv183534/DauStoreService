@@ -1,6 +1,6 @@
 class BaseApi {
     constructor() {
-        this.baseUrl = 'https://localhost:5001/api/';
+        this.baseUrl = 'http://localhost:5000/api/';
         this.accessToken = sessionStorage.getItem('access_token');
     }
 

@@ -45,7 +45,7 @@ if (cbbs) {
                 })
                 console.log(element.getAttribute('valueid') + ' - ' + element.getAttribute('valuename'));
                 element.classList.add('item-active');
-                document.querySelector(`#${element.parentElement.getAttribute('forCbbId')}`).querySelector('.input').value = element.getAttribute('valuename');
+                document.querySelector(`#${element.parentElement.getAttribute(' ')}`).querySelector('.input').value = element.getAttribute('valuename');
                 document.querySelector(`#${element.parentElement.getAttribute('forCbbId')}`).setAttribute('value', element.getAttribute('valueid'));
 
 

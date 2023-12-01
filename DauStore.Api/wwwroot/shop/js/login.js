@@ -17,6 +17,8 @@ function initEvent() {
             inputPassword.focus();
         }
 
+        debugger
+
         API.login(inputPhone.value, inputPassword.value).done(res => {
             sessionStorage.setItem('access_token', res.data.token);
             window.location.href = "./page/home.html";
