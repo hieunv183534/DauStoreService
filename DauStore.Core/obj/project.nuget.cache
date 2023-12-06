@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Vr/rMJ+KvTHR9RJJFdTOlxN/REsmaRuLAJKBHh0pWQHrkTXrv95RmsX7PDsAJZjM+MV3XdmfCTSBVBWxdrTeZQ==",
+  "dgSpecHash": "Yti/HIi/PZKr63LwYdGjAy7iDNdLDqNFAcnrTTCwSHEVb3KPMDeC6TZTu5bPLzkKBTs5XLgr8g8CM+UF1wInxQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\efoot\\OneDrive\\Desktop\\DauStoreService\\DauStore.Core\\DauStore.Core.csproj",
   "expectedPackageFiles": [
@@ -70,10 +70,7 @@
     "C:\\Users\\efoot\\.nuget\\packages\\system.text.encoding.codepages\\4.4.0\\system.text.encoding.codepages.4.4.0.nupkg.sha512",
     "C:\\Users\\efoot\\.nuget\\packages\\system.threading\\4.3.0\\system.threading.4.3.0.nupkg.sha512",
     "C:\\Users\\efoot\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
-    "C:\\Users\\efoot\\.nuget\\packages\\system.threading.threadpool\\4.3.0\\system.threading.threadpool.4.3.0.nupkg.sha512",
-    "C:\\Users\\efoot\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
-    "C:\\Users\\efoot\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
-    "C:\\Users\\efoot\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512"
+    "C:\\Users\\efoot\\.nuget\\packages\\system.threading.threadpool\\4.3.0\\system.threading.threadpool.4.3.0.nupkg.sha512"
   ],
   "logs": []
 }

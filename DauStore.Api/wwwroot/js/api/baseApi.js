@@ -1,6 +1,6 @@
 class BaseApi {
     constructor() {
-        this.baseUrl = 'http://localhost:6000/api/';
+        this.baseUrl = 'http://localhost:5000/api/';
         this.accessToken = sessionStorage.getItem('access_token');
     }
 
@@ -170,14 +170,14 @@ class BaseApi {
 
     getUnits(unitCode){
         return $.ajax({
-            url: `https://n8-covid-be.herokuapp.com/unit/unit-info?unit=${unitCode}&page=1&total=100`,
+            url: `http://localhost:9000/unit/unit-info?unit=${unitCode}&page=1&total=100`,
             method: 'GET'
         });
     }
 
     getUnit(unitCode){
         return $.ajax({
-            url: `https://n8-covid-be.herokuapp.com/unit/unit-single?unit=${unitCode}`,
+            url: `http://localhost:9000/unit/unit-single?unit=${unitCode}`,
             method: 'GET'
         });
     }

@@ -6,7 +6,7 @@ function parseHTML(html) {
 }
 
 function getMediaUrl(fileName) {
-    return `https://firebasestorage.googleapis.com/v0/b/daustore.appspot.com/o/${fileName}.png?alt=media`;
+    return `https://firebasestorage.googleapis.com/v0/b/daustorehieunv.appspot.com/o/${fileName}.png?alt=media`;
 }
 
 var orderStatus = ['', 'Chờ duyệt', 'Đã xác nhận', 'Đang giao', 'Đã giao', 'Hủy bỏ', 'Hoàn trả'];

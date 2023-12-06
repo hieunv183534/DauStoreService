@@ -316,7 +316,7 @@ class BaseApi {
 
     getUnit(unitCode) {
         return $.ajax({
-            url: `https://n8-covid-be.herokuapp.com/unit/unit-single?unit=${unitCode}`,
+            url: `http://localhost:9000/unit/unit-single?unit=${unitCode}`,
             method: 'GET'
         });
     }
