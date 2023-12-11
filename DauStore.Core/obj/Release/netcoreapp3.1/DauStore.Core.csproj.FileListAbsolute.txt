@@ -1,0 +1,10 @@
+C:\Users\efoot\OneDrive\Desktop\DauStoreService\DauStore.Core\bin\Release\netcoreapp3.1\DauStore.Core.deps.json
+C:\Users\efoot\OneDrive\Desktop\DauStoreService\DauStore.Core\bin\Release\netcoreapp3.1\DauStore.Core.dll
+C:\Users\efoot\OneDrive\Desktop\DauStoreService\DauStore.Core\bin\Release\netcoreapp3.1\DauStore.Core.pdb
+C:\Users\efoot\OneDrive\Desktop\DauStoreService\DauStore.Core\obj\Release\netcoreapp3.1\DauStore.Core.csproj.AssemblyReference.cache
+C:\Users\efoot\OneDrive\Desktop\DauStoreService\DauStore.Core\obj\Release\netcoreapp3.1\DauStore.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\efoot\OneDrive\Desktop\DauStoreService\DauStore.Core\obj\Release\netcoreapp3.1\DauStore.Core.AssemblyInfoInputs.cache
+C:\Users\efoot\OneDrive\Desktop\DauStoreService\DauStore.Core\obj\Release\netcoreapp3.1\DauStore.Core.AssemblyInfo.cs
+C:\Users\efoot\OneDrive\Desktop\DauStoreService\DauStore.Core\obj\Release\netcoreapp3.1\DauStore.Core.csproj.CoreCompileInputs.cache
+C:\Users\efoot\OneDrive\Desktop\DauStoreService\DauStore.Core\obj\Release\netcoreapp3.1\DauStore.Core.dll
+C:\Users\efoot\OneDrive\Desktop\DauStoreService\DauStore.Core\obj\Release\netcoreapp3.1\DauStore.Core.pdb

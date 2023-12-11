@@ -13,7 +13,7 @@ namespace DauStore.Infrastructure.Repositories
         /// </summary>
         public static IDbConnection DbConnection
         {
-            get { return new MySqlConnection("Host=localhost ;Port=3307 ;Database=daustore ; User Id=root; Password=Vnvd8788"); }
+            get { return new MySqlConnection("Host=MYSQL8003.site4now.net ;Port=3306 ;Database=db_aa29e8_hehe ; User Id=aa29e8_hehe; Password=Vnvd8788"); }
         }
     }
 }
