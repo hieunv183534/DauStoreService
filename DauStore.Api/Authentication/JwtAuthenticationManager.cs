@@ -23,7 +23,7 @@ namespace DauStore.Api.Authentication
 
         public string Authenticate(string phoneNumber, string password)
         {
-            if(phoneNumber == "0971883025" && password == "admin12345")
+            if(phoneNumber == "0915942072" && password == "admin12345")
             {
                 _account = new Account()
                 {

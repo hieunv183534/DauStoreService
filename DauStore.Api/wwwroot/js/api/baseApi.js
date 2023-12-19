@@ -1,6 +1,6 @@
 class BaseApi {
     constructor() {
-        this.baseUrl = 'https://pandorastore-001-site1.btempurl.com/api/';
+        this.baseUrl = 'https://pandorastore-001-site1.anytempurl.com/api/';
         this.accessToken = sessionStorage.getItem('access_token');
     }
 

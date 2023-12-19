@@ -109,7 +109,7 @@ namespace DauStore.Api.Controllers
         {
             var phoneNumber = User.FindFirstValue(ClaimTypes.Name);
             var acc = (Account)_accountService.GetByProp("Phone", phoneNumber).Response.Data;
-            if(acc.Phone != "0971883025")
+            if(acc.Phone != "0915942072")
             {
                 return StatusCode(403, new ResponseModel(4003, "Tài khoản của bạn không có quyền tạo acc admin!"));
             }
@@ -124,7 +124,7 @@ namespace DauStore.Api.Controllers
         {
             var phoneNumber = User.FindFirstValue(ClaimTypes.Name);
             var acc = (Account)_accountService.GetByProp("Phone", phoneNumber).Response.Data;
-            if (acc.Phone != "0971883025")
+            if (acc.Phone != "0915942072")
             {
                 return StatusCode(403, new ResponseModel(4003, "Tài khoản của bạn không có quyền xóa acc!"));
             }else if (acc.AccountId.Equals(accountId))

@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\efoot\OneDrive\Desktop\pldaustore</_PublishTargetUrl>
-    <History>True|2023-12-19T02:42:14.8620546Z;</History>
+    <History>True|2023-12-19T06:59:57.9560231Z;True|2023-12-19T13:54:49.4694232+07:00;True|2023-12-19T09:42:14.8620546+07:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -124,10 +124,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>12/19/2023 08:57:51</publishTime>
     </File>
     <File Include="wwwroot/index.html">
-      <publishTime>12/19/2023 09:34:32</publishTime>
+      <publishTime>12/19/2023 13:58:57</publishTime>
     </File>
     <File Include="wwwroot/js/api/baseApi.js">
-      <publishTime>12/19/2023 09:40:25</publishTime>
+      <publishTime>12/19/2023 13:52:01</publishTime>
     </File>
     <File Include="wwwroot/js/common/carousel.js">
       <publishTime>12/06/2023 15:40:02</publishTime>
@@ -163,7 +163,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>12/06/2023 15:40:02</publishTime>
     </File>
     <File Include="wwwroot/js/page/pay.js">
-      <publishTime>12/19/2023 09:40:25</publishTime>
+      <publishTime>12/19/2023 13:52:01</publishTime>
     </File>
     <File Include="wwwroot/js/page/register.js">
       <publishTime>12/06/2023 15:40:02</publishTime>
@@ -172,19 +172,19 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>12/06/2023 15:40:02</publishTime>
     </File>
     <File Include="wwwroot/page/cart.html">
-      <publishTime>12/19/2023 09:34:31</publishTime>
+      <publishTime>12/19/2023 13:58:57</publishTime>
     </File>
     <File Include="wwwroot/page/item.html">
-      <publishTime>12/19/2023 09:34:29</publishTime>
+      <publishTime>12/19/2023 13:58:57</publishTime>
     </File>
     <File Include="wwwroot/page/login.html">
       <publishTime>12/19/2023 09:13:58</publishTime>
     </File>
     <File Include="wwwroot/page/order-lookup.html">
-      <publishTime>12/19/2023 09:34:28</publishTime>
+      <publishTime>12/19/2023 13:58:52</publishTime>
     </File>
     <File Include="wwwroot/page/pay.html">
-      <publishTime>12/19/2023 09:34:25</publishTime>
+      <publishTime>12/19/2023 13:58:47</publishTime>
     </File>
     <File Include="wwwroot/page/register.html">
       <publishTime>12/08/2023 15:40:40</publishTime>
@@ -289,10 +289,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>12/06/2023 15:40:02</publishTime>
     </File>
     <File Include="wwwroot/shop/index.html">
-      <publishTime>12/19/2023 09:13:58</publishTime>
+      <publishTime>12/19/2023 13:53:07</publishTime>
     </File>
     <File Include="wwwroot/shop/js/api/baseApi.js">
-      <publishTime>12/19/2023 09:40:25</publishTime>
+      <publishTime>12/19/2023 13:52:01</publishTime>
     </File>
     <File Include="wwwroot/shop/js/common/common.js">
       <publishTime>12/06/2023 15:40:02</publishTime>
@@ -325,7 +325,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>12/06/2023 15:40:02</publishTime>
     </File>
     <File Include="wwwroot/shop/js/page/orderPage.js">
-      <publishTime>12/19/2023 09:40:25</publishTime>
+      <publishTime>12/19/2023 13:52:01</publishTime>
     </File>
     <File Include="wwwroot/shop/js/page/voucherPage.js">
       <publishTime>12/06/2023 15:40:02</publishTime>
