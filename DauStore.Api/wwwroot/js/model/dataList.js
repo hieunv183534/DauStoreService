@@ -16,7 +16,7 @@ class listDatas {
                 },
             ],
             orderer:{
-                name: 'Nguyễn Văn Hiếu',
+                name: 'Nguyễn Xuân Trường',
                 phone: '0971883025',
                 address: '121 ltn Hai Bà Trưng, Hà Nội'
             },
@@ -40,7 +40,7 @@ class listDatas {
                 },
             ],
             orderer:{
-                name: 'Nguyễn Văn Hiếu',
+                name: 'Nguyễn Xuân Trường',
                 phone: '0971883025',
                 address: '121 ltn Hai Bà Trưng, Hà Nội'
             },
@@ -64,7 +64,7 @@ class listDatas {
                 },
             ],
             orderer:{
-                name: 'Nguyễn Văn Hiếu',
+                name: 'Nguyễn Xuân Trường',
                 phone: '0971883025',
                 address: '121 ltn Hai Bà Trưng, Hà Nội'
             },
@@ -88,7 +88,7 @@ class listDatas {
                 },
             ],
             orderer:{
-                name: 'Nguyễn Văn Hiếu',
+                name: 'Nguyễn Xuân Trường',
                 phone: '0971883025',
                 address: '121 ltn Hai Bà Trưng, Hà Nội'
             },
@@ -112,7 +112,7 @@ class listDatas {
                 },
             ],
             orderer:{
-                name: 'Nguyễn Văn Hiếu',
+                name: 'Nguyễn Xuân Trường',
                 phone: '0971883025',
                 address: '121 ltn Hai Bà Trưng, Hà Nội'
             },

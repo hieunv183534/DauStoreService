@@ -120,7 +120,7 @@ class OrderPage extends Base {
         console.log(res);
         let url = res.replace("/app/wwwroot/","");
         const a = document.createElement("a");
-        a.href = `https://bandaustore-001-site1.btempurl.com/${url}`;
+          a.href = `https://pandorastore-001-site1.btempurl.com/${url}`;
         // a.setAttribute("download", filename);
         document.body.appendChild(a);
         a.click();

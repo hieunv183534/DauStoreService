@@ -78,7 +78,7 @@ class PayPage extends Base {
             console.log(this.orderForm);
             this.API.addOrder(this.orderForm).done(res => {
                 document.querySelector('#orderQrCode').setAttribute('src',
-                    `https://api.qrserver.com/v1/create-qr-code/?data=https://bandaustore-001-site1.btempurl.com/page/pay.html?orderCode=${res.data.orderCode}&size=200x200`);
+                    `https://api.qrserver.com/v1/create-qr-code/?data=https://pandorastore-001-site1.btempurl.com/page/pay.html?orderCode=${res.data.orderCode}&size=200x200`);
                 showToastMessenger('success', "Đặt hàng thành công!");
                 sessionStorage.setItem('cart', '[]');
                 sessionStorage.setItem('totalMoney', 0);

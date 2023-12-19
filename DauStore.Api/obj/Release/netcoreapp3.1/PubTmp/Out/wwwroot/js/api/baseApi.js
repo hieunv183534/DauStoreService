@@ -1,6 +1,6 @@
 class BaseApi {
     constructor() {
-        this.baseUrl = 'http://bandaustore-001-site1.btempurl.com/api/';
+        this.baseUrl = 'https://pandorastore-001-site1.btempurl.com/api/';
         this.accessToken = sessionStorage.getItem('access_token');
     }
 
@@ -170,14 +170,14 @@ class BaseApi {
 
     getUnits(unitCode){
         return $.ajax({
-            url: `https://app-64649.on-aptible.com/unit/unit-info?unit=${unitCode}&page=1&total=100`,
+            url: `https://app-65215.on-aptible.com/unit/unit-info?unit=${unitCode}&page=1&total=100`,
             method: 'GET'
         });
     }
 
     getUnit(unitCode){
         return $.ajax({
-            url: `https://app-64649.on-aptible.com/unit/unit-single?unit=${unitCode}`,
+            url: `https://app-65215.on-aptible.com/unit/unit-single?unit=${unitCode}`,
             method: 'GET'
         });
     }

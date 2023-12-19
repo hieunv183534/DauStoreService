@@ -132,7 +132,7 @@ namespace DauStore.Core.Services
                 {
                     _serviceResult.Response = new ResponseModel(2001, "Cập nhật, thêm dữ liệu thành công", new { orderCode = newCode });
                     _serviceResult.StatusCode = 201;
-                    string link = "https://bandaustore-001-site1.btempurl.com/page/pay.html?orderCode=" + newCode;
+                    string link = "https://pandorastore-001-site1.btempurl.com/page/pay.html?orderCode=" + newCode;
                     if (useVoucher)
                     {
                         _voucherRepository.UseVoucher(order.VoucherId);
